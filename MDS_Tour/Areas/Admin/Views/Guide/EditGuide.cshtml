@@ -1,0 +1,59 @@
+﻿@model EntityLayer.Concrete.Guides
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "EditGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 style="color:lightcoral" class="mb-0">Edit Guide</h5>
+
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    @Html.HiddenFor(x=>x.GuideId)
+                    
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Name Surname</label>
+                        <input type="text" asp-for="GuideName" class="form-control" id="basic-default-fullname" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Description</label>
+                         <textarea 
+                           asp-for="Description"class="form-control"></textarea> 
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-email">Image</label>
+                        
+                            <input type="text"
+                                   id="basic-default-email"
+                                   class="form-control"
+                                   asp-for="Image" />                      
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">Twitter</label>
+                        <input type="text"
+                               id="basic-default-phone"
+                               class="form-control phone-mask" 
+                               asp-for="TwitterUrl"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Instagram</label>
+                        <input type="text" asp-for="InstagramUrl"class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Status</label>
+                        <input type="text" asp-for="Status"class="form-control" />
+                    </div>
+                    <button  class="btn btn-primary">Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+

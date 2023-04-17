@@ -1,0 +1,45 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment> 
+
+<div class="comments mt-5">
+     
+    <h4 class="side-title ">Comments (@Model.Count())</h4>
+    <br />
+    @if(@Model.Count()==0)
+    {
+         <div class="media-body">
+             There are no comments for this tour yet.
+         </div>
+    }
+    @foreach (var item in Model)
+    {
+    <div class="media mt-4">
+       
+        
+            <div class="img-circle">
+                <img src="~/Traversal-Content/Traversal-Liberty/assets/images/c1.jpg" class="img-fluid" alt="...">
+            </div>
+            <div class="media-body">
+
+                <ul class="time-rply mb-2">
+                    <li>
+                        <a href="#URL" class="name mt-0 mb-2 d-block">@item.CommentUser</a>
+                        @item.CommentDate
+
+                    </li>
+                    <li class="reply-last">
+                        <a href="#reply" class="reply">
+                            Reply
+                        </a>
+                    </li>
+                </ul>
+                <p>
+                    @item.CommentContent
+                </p>
+
+            </div>
+       
+    </div>
+     }
+    
+</div> 

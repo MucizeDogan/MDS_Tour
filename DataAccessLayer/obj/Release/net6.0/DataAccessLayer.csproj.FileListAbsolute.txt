@@ -1,0 +1,17 @@
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\bin\Release\net6.0\DataAccessLayer.deps.json
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\bin\Release\net6.0\DataAccessLayer.runtimeconfig.json
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\bin\Release\net6.0\DataAccessLayer.dll
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\bin\Release\net6.0\DataAccessLayer.pdb
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\bin\Release\net6.0\EntityLayer.dll
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\bin\Release\net6.0\EntityLayer.pdb
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.AssemblyInfo.cs
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.csproj.CopyComplete
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.dll
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\refint\DataAccessLayer.dll
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.pdb
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.genruntimeconfig.cache
+C:\Users\mucize\Desktop\C#\MDS_Tour\DataAccessLayer\obj\Release\net6.0\ref\DataAccessLayer.dll

@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="~/sneatt/sneat-1.0.0/assets/"
+  data-template="vertical-menu-template-free"
+>
+  @await Html.PartialAsync("/Views/Admin/HeaderPartial.cshtml")
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          
+            @await Html.PartialAsync("/Views/Admin/AppBrandDemePartial.cshtml")
+
+          <div class="menu-inner-shadow"></div>
+
+          @await Html.PartialAsync("/Views/Admin/LeftSideBarPartial.cshtml")
+
+        </aside>
+        
+        <div class="layout-page">
+          <!-- Navbar -->
+          @await Html.PartialAsync("/Views/Admin/NavbarPartial.cshtml")
+          <!-- / Navbar -->
+            @RenderBody()
+          <div class="content-wrapper">
+
+            
+            <!-- Footer -->
+            
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+        </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="~/sneatt/sneat-1.0.0/assets/vendor/libs/jquery/jquery.js"></script>
+
+    <script src="~/sneatt/sneat-1.0.0/assets/vendor/libs/popper/popper.js"></script>
+    <script src="~/sneatt/sneat-1.0.0/assets/vendor/js/bootstrap.js"></script>
+    <script src="~/sneatt/sneat-1.0.0/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/sneatt/sneat-1.0.0/assets/vendor/js/menu.js"></script>
+    <script src="~/sneatt/sneat-1.0.0/assets/js/main.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>
+

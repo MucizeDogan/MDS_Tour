@@ -1,0 +1,64 @@
+﻿@using EntityLayer.Concrete
+@model List<Reservation>
+@{
+    ViewData["Title"] = "MyOldReservation";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>My Old Reservation</h1>
+
+@if(Model.Count()==0)
+{
+    <br />
+<br /><br />
+<br /><br />
+<br />
+    <h4>You have no previous reservation</h4>
+}
+else
+{
+    
+
+
+<link href="~/DataTables/DataTables-1.13.4/css/dataTables.bootstrap5.css" />
+
+
+
+<table id="tblOld" class="table table-bordered">
+    <thead>
+        <tr class="border-4">
+            <th>#</th>
+            <th>DESTINATION</th>
+            <th>COUNT OF PERSON</th>
+            <th>RESERVATION DATE</th>
+            <th>STATUS</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="border-1">
+
+                <td>@item.ReservationId </td>
+                <td> @item.Destination.City</td>
+                <td>@item.PersonCount</td>
+                <td>@item.ReservationDate.ToShortDateString()</td>
+                <td>@item.Status</td>
+                
+               
+            </tr>
+        }
+    </tbody>
+</table>
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="~/DataTables/datatables.js"></script>
+<script src="~/DataTables/DataTables-1.13.4/js/dataTables.bootstrap5.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#tblOld').DataTable(
+        );
+    });
+</script>

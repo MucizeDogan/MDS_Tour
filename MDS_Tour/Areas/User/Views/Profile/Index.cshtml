@@ -1,0 +1,46 @@
+﻿  @model MDS_Tour.Areas.User.Models.UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1> PROFILE EDIT</h1>
+<form method="post" enctype="multipart/form-data">
+   <div>
+    <label style="font-size:medium">Name:</label>
+    <input type="text" asp-for="name" class="form-control" >
+    </div>
+    <br />
+     <div>
+    <label  style="font-size:medium">Surname:</label>
+    <input type="text" asp-for="surname" class="form-control" >
+    </div>
+    <br />
+     <div>
+    <label style="font-size:medium">Password:</label>
+    <input type="text" asp-for="password" class="form-control" >
+    </div>
+    <br />
+     <div>
+    <label style="font-size:medium">Confirm Password:</label>
+    <input type="text" asp-for="confirmpassword" class="form-control" >
+    </div>
+    <br />
+     <div>
+    <label style="font-size:medium">Phone Number:</label>
+    <input type="text" asp-for="phonenumber" class="form-control" >
+    </div>
+    <br />
+     <div>
+    <label style="font-size:medium">Email:</label>
+    <input type="email" asp-for="mail" class="form-control" >
+    </div>
+     <br />
+     <div class=" form-group">
+         <label>Choose Image</label>
+         <input type="file" asp-for="Image" />
+     </div>
+     <br />
+
+     <button class="btn btn-primary">Edit </button>
+</form>

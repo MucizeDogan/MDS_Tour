@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@await Component.InvokeAsync("SliderPartial")
+
+@await Component.InvokeAsync("PopularDestinations")
+
+@await Component.InvokeAsync("Statistics")
+
+
+<div class="best-rooms py-5">
+    <div class="container py-md-5">
+        <div class="ban-content-inf row">
+          @await Component.InvokeAsync("Feature")
+          @await Component.InvokeAsync("Feature2")
+        </div>
+    </div>
+</div>
+  @await Component.InvokeAsync("_SubAbout")
+
+  @await Component.InvokeAsync("_Testimonial")
+
+

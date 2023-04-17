@@ -1,0 +1,66 @@
+﻿@model EntityLayer.Concrete.Destination
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "AddDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 style="color:lightcoral" class="mb-0">Add Destination</h5>
+
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">City</label>
+                        <input type="text" asp-for="City" class="form-control" id="basic-default-fullname" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">Day-Night</label>
+                        <input type="text" asp-for="DayNight" class="form-control" id="basic-default-company" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-email">Price</label>
+                        <div class="input-group input-group-merge">
+                            <input type="text"
+                                   id="basic-default-email"
+                                   class="form-control"
+                                   asp-for="Price" />
+                        </div>                       
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">Image</label>
+                        <input type="text"
+                               id="basic-default-phone"
+                               class="form-control phone-mask" 
+                               asp-for="Image"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Capacity</label>
+                        <input type="text" asp-for="Capacity"class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Image-2</label>
+                        <input type="text" asp-for="Image2"class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Details-1</label>
+                         <textarea  cols="25" rows="4"
+                           asp-for="Details1"class="form-control"></textarea>
+                    </div>
+                     <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Details-2</label>
+                         <textarea 
+                           asp-for="Details2"class="form-control"></textarea> 
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+

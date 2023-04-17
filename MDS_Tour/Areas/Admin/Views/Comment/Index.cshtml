@@ -1,0 +1,58 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h1 style="margin-left:50px">COMMENTS</h1>
+<table id="tblComment" class="table table-bordered">
+    <thead>
+        <tr class="border-4">
+            <th>#</th>
+            <th>USER</th>
+            <th>COMMENT</th>
+            <th>DESTINATION</th>
+            <th>DATE</th>
+            <th>DELETE</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="border-1">
+
+                <td>@item.CommentId </td>
+                <td> @item.CommentUser</td>
+                <td>@item.CommentContent</td>
+                <td> @item.Destination.City</td>
+                <td>@item.CommentDate.ToShortDateString()</td>           
+                <td>  
+                    <a href="/Admin/Comment/DeleteComment/@item.CommentId" class="btn btn-danger">DELETE</a>
+                </td>
+            </tr>
+        }
+       
+    </tbody>
+</table>
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+
+
+
+<script>
+$(document).ready(function(){
+    $('#tblComment').dataTable(
+    );
+});
+</script>
+
+

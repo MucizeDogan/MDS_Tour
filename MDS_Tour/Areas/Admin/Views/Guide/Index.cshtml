@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete
+@model List<Guides>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1 style="margin-left:30px">Guides List</h1>
+
+
+
+<table  class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Image</th>
+        <th>Name Surname </th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.GuideId</td>
+        <td>@item.Image</td>
+        <td>@item.GuideName</td>
+        <td>@item.Description</td>
+            @{
+                if(item.Status==true)
+                {
+                    <td><a href="#" class=" btn btn-outline-warning">Make Passive</a></td>
+                }
+                else
+                {
+                    <td><a href="#" class="btn btn-outline-success">Make Active</a></td>
+                }
+            }
+        <td><a href="/Admin/Guide/EditGuide/@item.GuideId" class="btn btn-outline-primary">Edit</a></td>
+    </tr>
+    }
+</table>
+<a href="/Admin/Guide/AddGuide/" class="btn btn-primary">New Guide Add</a>

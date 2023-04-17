@@ -1,0 +1,58 @@
+﻿@using EntityLayer.Concrete
+@model List<Destination>
+<link href="~/DataTables/DataTables-1.13.4/css/dataTables.bootstrap5.css" />
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1 style="margin-left:50px">TOURS</h1>
+
+<table id="tblDestination" class="table table-bordered">
+    <thead>
+        <tr class="border-4">
+            <th>#</th>
+            <th>CITY</th>
+            <th>DAY NIGHT</th>
+            <th>PRICE</th>
+            <th>CAPACITY</th>
+            <th>SEE ON SITE</th>
+            <th>DETAILS</th>
+            <th>SETTINGS</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="border-1">
+
+                <td>@item.DestinationId </td>
+                <td> @item.City</td>
+                <td>@item.DayNight</td>
+                <td>€ @item.Price</td>
+                <td>@item.Capacity</td>
+                <td><a href="/Destination/DestinationDetails/@item.DestinationId" class="btn btn-info">SEE ON SITE</a></td>
+                <td><a href="#" class="btn btn-primary">DETAILS</a></td>
+                <td>
+                    <a href="/Admin/Destination/UpdateDestination/@item.DestinationId" class="btn btn-success">UPDATE</a>
+                    <a href="/Admin/Destination/DeleteDestination/@item.DestinationId" class="btn btn-danger">DELETE</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Admin/Destination/AddDestination" class="btn btn-outline-primary">New Destination Tour</a>
+
+
+<script src="~/DataTables/datatables.js"></script>
+<script src="~/DataTables/DataTables-1.13.4/js/dataTables.bootstrap5.js"></script>
+
+
+<script>
+$(document).ready(function(){
+    $('#tblDestination').dataTable(
+    );
+});
+</script>

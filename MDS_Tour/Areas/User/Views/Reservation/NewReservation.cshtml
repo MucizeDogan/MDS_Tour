@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.Reservation   
+
+@{
+    ViewData["Title"] = "NewReservation";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}   
+
+<h1>Reservation</h1>
+<form method="post">
+    <div class="form-control-label"> 
+        <label>Destination</label>
+      @*  <@Html.DropDownListFor(x=>x.Destination,(List<SelectListItem>)ViewBag.v,new{@class="form-control"})*@
+    </div>
+    <div class="form-group">
+        <label>Count of Person </label>
+        <input type="number" placeholder="Please enter the count of people as numbers only." max="15" min="1" asp-for="PersonCount" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Date</label>
+        <input type="date" asp-for="ReservationDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Description(optional) </label>
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    
+    <button class=" btn btn-success">Make a Reservation</button>
+
+   
+    
+    
+    @* pop up*@
+    <script>
+        window.onload=(function () {
+            alert('Your reservation will be initially waiting confirmation. Do not forget to follow the "My Current Reservations" menu for the reservation confirmation process..');
+        });</script>
+</form>
+

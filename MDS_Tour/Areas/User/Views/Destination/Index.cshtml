@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete
+@model List<Destination>
+
+<link href="~/DataTables/DataTables-1.13.4/css/dataTables.bootstrap5.css" />
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>TOURS</h1>
+
+<table id="tblDestinations" class="table table-bordered">
+    <thead>
+        <tr class="border-4">
+            <th>#</th>
+            <th>CITY</th>
+            <th>DURATION</th>
+            <th>CAPACITY</th>
+            <th>PRICE</th>
+            <th>DETAILS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="border-1">
+                <td>@item.DestinationId </td>
+                <td> @item.City</td>
+                <td>@item.DayNight</td>
+                <td>@item.Capacity</td>
+                <td>€@item.Price</td>
+                <td><a href="/DestinationDetails/Destination/" class="btn btn-linkedin"> DETAILS </a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="~/DataTables/datatables.js"></script>
+<script src="~/DataTables/DataTables-1.13.4/js/dataTables.bootstrap5.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#tblDestinations').DataTable(
+        );
+    });
+</script>
+
+
+
+

@@ -1,0 +1,93 @@
+﻿@model MDS_Tour.Models.UserRegisterViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MDS Tour User Registration Screen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LINEARICONS -->
+    <link rel="stylesheet" href="~/register/fonts/linearicons/style.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/register/css/style.css">
+</head>
+
+<body>
+    <img src="~/register/images/registerimage1" alt="" class="image-3">
+    <div class="wrapper">
+        <div class="inner">
+            <img src="~/register/images/registerimag3.png" style="position:initial" alt="" class="image-1">
+            <form method="post">
+                <h3>New Account</h3>
+                <div class="form-holder">
+                    <span class="lnr lnr-user"></span>
+                    <input type="text" class="form-control" placeholder="Name" asp-for="Name">
+                </div>
+                <div>
+                    <span asp-validation-for="Name" style="color:red"></span>
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-user"></span>
+                    <input type="text" class="form-control" placeholder="Surname" asp-for="Surname">
+                </div>
+                <div>
+                    <span asp-validation-for="Surname" style="color:red"></span>
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-envelope"></span>
+                    <input type="email" class="form-control" placeholder="Mail" asp-for="Mail">
+                </div>
+                <div>
+                    <span asp-validation-for="Mail" style="color:red"></span>
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-phone-handset"></span>
+                    <input type="text" class="form-control" placeholder="User Name" asp-for="Username">
+                </div>
+                <div>
+                    <span asp-validation-for="Username" style="color:red"></span>
+                </div>
+
+                <div class="form-holder">
+                    @*<div>
+                        <span class="lnr lnr-lock"></span>
+                    </div>*@
+                    <input type="password" class="form-control" asp-for="Password" placeholder="Password">
+                    <div style="color:#ff0000" asp-validation-summary="ModelOnly">
+                    </div>
+                </div>
+                <div>
+                    <span asp-validation-for="Password" style="color:red"></span>
+                </div>
+
+                <div class="form-holder">
+                    <span class="lnr lnr-lock"></span>
+                    <input type="password" class="form-control" placeholder="Confirm Password" asp-for="ConfirmPassword">
+                </div>
+                <div>
+                    <span asp-validation-for="ConfirmPassword" style="color:red"></span>
+                </div>
+                <button>
+                    <span>Register</span>
+                </button>
+
+            </form>
+            <img src="~/register/images/registerimage4.png" style="position:static" alt="" class="image-2">
+        </div>
+
+    </div>
+
+    <script src="~/register/js/jquery-3.3.1.min.js"></script>
+    <script src="~/register/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+
+
+
