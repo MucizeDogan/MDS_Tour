@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Route("Admin/Guide")]
+    [Route("Admin/[controller]/[action]/{id?}")]
     [AllowAnonymous]
     public class GuideController : Controller
     {
@@ -36,7 +38,7 @@ namespace MDS_Tour.Areas.Admin.Controllers
             if(result.IsValid)
             {
                 _guidesService.Tadd(guide);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Guide", new { area = "Admin" });
             }
             else
             {
@@ -57,17 +59,17 @@ namespace MDS_Tour.Areas.Admin.Controllers
         public IActionResult EditGuide(Guides guides)
         {
             _guidesService.Tupdate(guides);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
         public IActionResult ChangeToStatusTrue(int id)
         {
-           
-            return RedirectToAction("Index");
+            _guidesService.TChangeToTrueStatus(id);
+            return RedirectToAction("Index","Guide", new {area="Admin"} );
         }
         public IActionResult ChangeToStatusFalse(int id)
         {
-
-            return RedirectToAction("Index");
+            _guidesService.TChangeToFalseStatus(id);
+            return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
     }
 }

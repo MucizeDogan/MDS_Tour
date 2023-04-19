@@ -1,0 +1,46 @@
+﻿@model MDS_Tour.Models.MailRequest
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+    <div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 style="color:lightcoral" class="mb-0">Sending New Email</h5>
+                
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Recipient's Email </label>
+                        <input type="text" asp-for="RecipientofMail" class="form-control" id="basic-default-fullname" />
+                       
+                    </div>
+                   
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">Subject</label>
+                        <input type="text"
+                               id="basic-default-phone"
+                               class="form-control phone-mask" 
+                               asp-for="Subject"/>
+                    </div>
+                    <div class="mb-10">
+                        <label class="form-label" for="basic-default-fullname">Content </label>
+                        <textarea cols="25" rows="5" asp-for="Content" class="form-control">
+                            
+                        </textarea>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-primary">Send Email</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+

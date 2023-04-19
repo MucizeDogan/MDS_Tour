@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<h1>City - Country</h1>
+<br />
+
+<div class="container mb-3">
+    <div class="row">
+        <div class="col-md-1">
+            <button type="button" id="btnGetCityList" class="btn btn-outline-info">City List</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" id="btnAddDestination" class="btn btn-outline-success">Add City</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" id="btnDeleteDestination" class="btn btn-outline-danger">Delete City</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" id="btnUpdateDestination" class="btn btn-outline-warning">Update City</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" id="btnGetById" class="btn btn-outline-primary">Get Destination</button>
+        </div>
+    </div>
+</div>
+
+<div id="cityList">
+    City List
+</div>
+<br />
+<br />
+
+<input type="text" id="txtid" placeholder="Enter Destination ID" class="form-control" />
+<br />
+<br />
+<br />
+<div id="destinationlistbyid">
+</div>
+<br />
+<br />
+<div>
+    <input type="text" id="txtcity" placeholder="Enter Destination name" class="form-control" /> <br />
+    <input type="text" id="txtdaynight" placeholder="Enter the number of days and nights (3 Nights, 4 Days)" class="form-control" /> <br />
+    <input type="number" id="txtprice" placeholder="Enter price" class="form-control" /> <br />
+    <input type="number" id="txtcapacity" placeholder="Enter Capacity" class="form-control" /> <br />
+</div>
+
+
+<script>
+    $("#btnGetCityList").click(function() {   // City List butonuna tıkladığındaaş.;
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "Get",
+            url: "/Admin/City/CityList/",
+            success: function(func) {
+                let j = jQuery.parseJSON(func); // DÖnüştür
+                console.log(j); //Yazdır j yi
+                let tablehtml = "<table class=table table-bordered> <tr> <th>#</th> <th> City Name </th> <th> Day- Night </th> <th> Price </th> </tr>"; // Tablo oluşturdum
+                $.each(j, (index, value) => {       //Tablonun içini doldurabilmek için (each burada bir döngü gibi hareket edecek) j den gelen değeri al , index e gideceksin value ile beraber
+                    tablehtml += `<tr> <td>${value.DestinationId}</td> <td>${value.City}</td> <td> ${value.DayNight}</td> <td>€${value.Price}</td> </tr>`
+                });
+                tablehtml += "</table>";
+                $("#cityList").html(tablehtml);
+            }
+        });
+    });
+
+    $("#btnAddDestination").click(function() {
+        let cityvalues = {
+            City: $("#txtcity").val(),
+            DayNight: $("#txtdaynight").val(),
+            Price: $("#txtprice").val(),
+            Capacity: $("#txtcapacity").val()
+
+        };
+        $.ajax({
+            type: "post",
+            url: "/Admin/City/AddDestination/",
+            data: cityvalues,
+            success: function(func) {
+                let result = jQuery.parseJSON(func);
+                alert("Destination added successfully");
+            }
+
+        });
+    });
+
+    $("#btnGetById").click(() => {
+        let id = $("#txtid").val();
+
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "Get",
+            url: "/Admin/City/GetById/",
+            data: { DestinationId: id },
+            success: function(func2) {
+                let result = jQuery.parseJSON(func2);
+                console.log(result);
+                let htmlstr = `<table class=table table-bordered> <tr> <th> City Name </th> <th> Day - Night </th> <th> Price </th> <th> Capacity </th> </tr> <tr> <td>${result.City} </td> <td>                ${result.DayNight} </td> <td>${result.Price} </td> <td>${result.Capacity} </td>  </tr> </table>`;
+                $("#destinationlistbyid").html(htmlstr);
+            }
+        });
+    });
+</script>

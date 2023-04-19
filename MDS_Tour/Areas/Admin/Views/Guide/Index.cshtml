@@ -29,11 +29,11 @@
             @{
                 if(item.Status==true)
                 {
-                    <td><a href="#" class=" btn btn-outline-warning">Make Passive</a></td>
+                    <td><a href="/Admin/Guide/ChangeToStatusFalse/@item.GuideId" class=" btn btn-outline-warning">Make Passive</a></td>
                 }
                 else
                 {
-                    <td><a href="#" class="btn btn-outline-success">Make Active</a></td>
+                    <td><a href="/Admin/Guide/ChangeToStatusTrue/@item.GuideId" class="btn btn-outline-success">Make Active</a></td>
                 }
             }
         <td><a href="/Admin/Guide/EditGuide/@item.GuideId" class="btn btn-outline-primary">Edit</a></td>
