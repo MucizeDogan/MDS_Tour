@@ -2,7 +2,9 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 
 <h1>City - Country</h1>
 <br />
@@ -32,16 +34,33 @@
 </div>
 <br />
 <br />
-
+@*Get Destination ID List*@
 <input type="text" id="txtid" placeholder="Enter Destination ID" class="form-control" />
 <br />
 <br />
 <br />
+@*Get Destination Delete *@
+<input type="text" id="txtdeletedid" placeholder="Enter the id of the Destination to be DELETED" class="form-control" />
+
+<br />
+<br />
+@*Get Destination Update*@
+<div id="updatediv">
+    <input type="text" id="txtupdatedid" placeholder="Enter the id of the Destination to be UPDATED" class="form-control" />
+    <input type="text" id="txtdestinationname" placeholder="Enter the NAME of the Destination to be UPDATED" class="form-control" />
+    <input type="text" id="txtDayNight" placeholder="Enter the Day-Night of the Destination to be UPDATED" class="form-control" />
+</div>
+<br />
+<br />
+@*Get List By İD div*@
 <div id="destinationlistbyid">
 </div>
 <br />
 <br />
-<div>
+
+<label>ADD</label>
+<div id="Adddiv">
+
     <input type="text" id="txtcity" placeholder="Enter Destination name" class="form-control" /> <br />
     <input type="text" id="txtdaynight" placeholder="Enter the number of days and nights (3 Nights, 4 Days)" class="form-control" /> <br />
     <input type="number" id="txtprice" placeholder="Enter price" class="form-control" /> <br />
@@ -84,6 +103,7 @@
             success: function(func) {
                 let result = jQuery.parseJSON(func);
                 alert("Destination added successfully");
+                $("#Adddiv").val(String.empty);
             }
 
         });
@@ -103,6 +123,48 @@
                 console.log(result);
                 let htmlstr = `<table class=table table-bordered> <tr> <th> City Name </th> <th> Day - Night </th> <th> Price </th> <th> Capacity </th> </tr> <tr> <td>${result.City} </td> <td>                ${result.DayNight} </td> <td>${result.Price} </td> <td>${result.Capacity} </td>  </tr> </table>`;
                 $("#destinationlistbyid").html(htmlstr);
+            },
+            //error: function(xhr, status, error) {
+            //console.log('Error: ' + error); // Hatanın mesajını konsola yazdır
+            error: function(data) {
+                $("#destinationlistbyid").val(String.empty);
+                alert("İlgili öğe bulunamadı.");
+
+            }
+        });
+    });
+
+    $("#btnDeleteDestination").click(x => {
+        let id = $("#txtdeletedid").val();
+        $.ajax({
+            url: "/Admin/City/DeleteDestination/" + id,
+            type: "post",
+            contentType: "application/json",
+            dataType: "json",
+            success: function(func3) {
+
+                $("#txtdeletedid").val(String.empty);
+
+
+            }
+        });
+    });
+
+    $("#btnUpdateDestination").click(function() {
+        let values = {
+            DestinationId: $("#txtupdatedid").val(),
+            City: $("#txtdestinationname").val(),
+            DayNight: $("#txtdestinationname").val()
+        };
+
+        $.ajax({
+            type: "post",
+            url: "/Admin/City/UpdateDestination/",
+            data: values,
+            success: function(func4) {
+                $("#updatediv").val(String.empty);
+                alert("Update done");
+                
             }
         });
     });

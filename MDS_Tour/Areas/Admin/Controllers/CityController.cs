@@ -38,7 +38,31 @@ namespace MDS_Tour.Areas.Admin.Controllers
         public IActionResult GetById(int DestinationId)
         {
             var data = _destinationService.TgetById(DestinationId);
-            var jsonData= JsonConvert.SerializeObject(data);
+            if(data==null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var jsonData = JsonConvert.SerializeObject(data);
+                return Json(jsonData);
+                
+            }
+            
+        }
+        public IActionResult DeleteDestination(int id)
+        {
+           
+            var data = _destinationService.TgetById(id);
+            _destinationService.Tdelete(data);
+            return NoContent();
+        }
+        public IActionResult UpdateDestination(Destination destination)
+        {
+            var data = _destinationService.TgetById(destination.DestinationId);
+            
+            _destinationService.Tupdate(destination);
+            var jsonData = JsonConvert.SerializeObject(destination);
             return Json(jsonData);
         }
 

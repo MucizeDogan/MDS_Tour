@@ -581,3 +581,5 @@ C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\XLParser.dll
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\MailKit.dll
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\MimeKit.dll
+C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\DTOLayer.dll
+C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\DTOLayer.pdb

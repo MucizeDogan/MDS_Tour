@@ -2,10 +2,14 @@
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using BusinessLayer.Container;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using DTOLayer.DataTrabsferObjects.AnnouncementDTOs;
 using EntityLayer.Concrete;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -27,6 +31,11 @@ namespace MDS_Tour
             
             // container Dependency injection uyguladýk ve ekstra new lemeden çaðýrdýk methodu
            builder.Services.ContainerDependicies();
+
+            builder.Services.AddAutoMapper(typeof(Program));
+            builder.Services.AddTransient<IValidator<AnnouncementAddDto>, AnnouncementValidator>();
+            builder.Services.AddControllersWithViews().AddFluentValidation();
+
 
             // Proje seviyesinde authorizationu kullanmak.
             builder.Services.AddMvc(config =>
