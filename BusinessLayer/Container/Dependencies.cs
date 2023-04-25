@@ -1,7 +1,10 @@
 ﻿using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
+using DTOLayer.DataTrabsferObjects.AnnouncementDTOs;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -42,6 +45,14 @@ namespace BusinessLayer.Container
             Services.AddScoped<IContactUsService, ContactUsManager>();
             Services.AddScoped<IContactUsDal, EfContactUsDal>();
 
+            //Announcement
+            Services.AddScoped<IAnnouncementService,AnnouncementManager>();
+            Services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
+
+        }
+        public static void CustomValidator(this IServiceCollection services)
+        {
+            services.AddTransient<IValidator<AnnouncementAddDto>, AnnouncementValidator>(); 
         }
     }
 }

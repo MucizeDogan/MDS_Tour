@@ -1,0 +1,35 @@
+﻿@model AnnouncementUpdateDTO
+@{
+    ViewData["Title"] = "UpdateAnnouncement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1>Update Announcement</h1>
+<br />
+
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 style="color:lightcoral" class="mb-0">Update Announcement</h3>
+            </div>
+            <div class="card-body">
+
+                <form method="post">
+                    <input type="hidden" asp-for="AnnouncementId" />
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Title</label>
+                        <input type="text" asp-for="Title" class="form-control" id="basic-default-fullname" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">Content</label>
+                        <input type="text" asp-for="Content" class="form-control" id="basic-default-company" />
+                    </div>
+                    
+                    <button  class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

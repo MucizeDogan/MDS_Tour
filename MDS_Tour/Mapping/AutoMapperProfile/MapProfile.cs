@@ -12,11 +12,19 @@ namespace MDS_Tour.Mapping.AutoMapperProfile
             CreateMap<AnnouncementAddDto, Announcement>();
             CreateMap<Announcement, AnnouncementAddDto>();
 
+            CreateMap<AnnouncementListDTO, Announcement>();
+            CreateMap<Announcement, AnnouncementListDTO>();
+
+            CreateMap<AnnouncementUpdateDTO, Announcement>();
+            CreateMap<Announcement, AnnouncementUpdateDTO>();
+
             CreateMap<AppUserRegisterDTO, AppUser>();
             CreateMap<AppUser,AppUserRegisterDTO>();
 
             CreateMap<AppUserLogInDTO, AppUser>();
             CreateMap<AppUser, AppUserLogInDTO>();
+
+            
         }
     }
 }

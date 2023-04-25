@@ -28,12 +28,19 @@ namespace MDS_Tour
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             builder.Services.AddDbContext<Context>();
             builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
-            
+
+            // Api tarafýndan gelen istekleri karþýlayacaðýz.
+            builder.Services.AddHttpClient();
+
             // container Dependency injection uyguladýk ve ekstra new lemeden çaðýrdýk methodu
            builder.Services.ContainerDependicies();
-
+            // Auto Mapper ýn eklenmesi
             builder.Services.AddAutoMapper(typeof(Program));
-            builder.Services.AddTransient<IValidator<AnnouncementAddDto>, AnnouncementValidator>();
+
+
+            //Announcement Add Validasyon için 
+            builder.Services.CustomValidator();
+
             builder.Services.AddControllersWithViews().AddFluentValidation();
 
 

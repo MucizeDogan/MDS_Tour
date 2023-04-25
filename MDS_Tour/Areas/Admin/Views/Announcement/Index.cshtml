@@ -1,0 +1,34 @@
+﻿@model List<DTOLayer.DataTrabsferObjects.AnnouncementDTOs.AnnouncementListDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1>ANNOUNCEMENT LIST</h1>
+<br />
+<table class="table table-bordered">
+<tr>
+    <th>#</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Details</th>
+    
+    <th>Operations</th>
+</tr>
+@foreach (var item in Model)
+    {    
+<tr>
+    <td>@item.AnnouncementId</td>
+    <td>@item.Title</td>
+    <td>@item.Content</td>
+    <td><a href="#" class="btn btn-outline-dark">Details</a></td>
+     <td>
+        <a href="/Admin/Announcement/UpdateAnnouncement/@item.AnnouncementId" class="btn btn-outline-warning">Update</a>
+        <a href="/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementId" class="btn btn-outline-danger">Delete</a>
+     </td>
+</tr>
+}
+</table>
+<div style="position:center">
+<a  href="/Admin/Announcement/AddAnnouncement/" class="btn btn-outline-primary">Add New Announcement</a>
+</div>
