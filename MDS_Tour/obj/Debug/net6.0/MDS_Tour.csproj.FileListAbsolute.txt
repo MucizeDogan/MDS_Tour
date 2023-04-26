@@ -365,7 +365,6 @@ C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\refs\Microsoft.Ext
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.KeyPerFile.dll
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.Xml.dll
-C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\refs\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
@@ -585,3 +584,7 @@ C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\DTOLayer.dll
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\DTOLayer.pdb
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\MediatR.dll
+C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\mucize\Desktop\C#\MDS_Tour\MDS_Tour\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

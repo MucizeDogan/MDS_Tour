@@ -87,6 +87,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRU1haWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/GuideMediatR/AddGuide.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3VpZGVNZWRpYXRSXEFkZEd1aWRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/GuideMediatR/GetGuide.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3VpZGVNZWRpYXRSXEdldEd1aWRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/GuideMediatR/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3VpZGVNZWRpYXRSXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/Guide/AddGuide.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3VpZGVcQWRkR3VpZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

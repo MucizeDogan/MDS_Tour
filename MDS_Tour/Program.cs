@@ -11,6 +11,7 @@ using EntityLayer.Concrete;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MDS_Tour.CQRS.Handlers.DestinationHandlers;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -31,6 +32,9 @@ namespace MDS_Tour
             builder.Services.AddScoped<CreateDestinationCommandHandler>();
             builder.Services.AddScoped<RemoveDestinationCommandHandler>();
             builder.Services.AddScoped<UpdateDestinationCommandHandler>();
+            //Sadece CQRS kullanýrken her bir Handle için ayrý ayrý scoped tanýmlýyorduk artýk MediatR ile artýk buna gerek kalmayacak.
+            builder.Services.AddMediatR(typeof(Program));
+
 
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             builder.Services.AddDbContext<Context>();

@@ -1,0 +1,31 @@
+﻿@model CreateGuideCommand
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<div class="card-header d-flex justify-content-between align-items-center">
+    <h2 style="color:lightcoral" class="mb-0">CQRS MediatR Add Guide page</h2>
+</div>
+<br />
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Name</label>
+                        <input type="text" asp-for="GuideName" class="form-control" id="basic-default-fullname" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">Description</label>
+                        <input type="text" asp-for="Description" class="form-control" id="basic-default-company" />
+                    </div>
+                    <button  class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

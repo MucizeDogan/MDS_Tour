@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Ie4SMzatxB4q1H2LrmO9n+IA6GK2db20+xhG+A4p7ZTASQsgaGVjY0O4avMuVvxmaDdBhhUX90HrogwxWn+Gog==",
+  "dgSpecHash": "DGN7HbtEtzx2ypjByGjepYtyHfzxcg4WNZej9uTl+Y7A7V4pl1R+CJYJwvhAw0JsFyczJ/PM6r8KPik6x7/bKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\mucize\\Desktop\\C#\\MDS_Tour\\MDS_Tour\\MDS_Tour.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,9 @@
     "C:\\Users\\mucize\\.nuget\\packages\\jquery.datatables\\1.10.15\\jquery.datatables.1.10.15.nupkg.sha512",
     "C:\\Users\\mucize\\.nuget\\packages\\jquery.datatables.net\\1.10.5\\jquery.datatables.net.1.10.5.nupkg.sha512",
     "C:\\Users\\mucize\\.nuget\\packages\\mailkit\\4.0.0\\mailkit.4.0.0.nupkg.sha512",
+    "C:\\Users\\mucize\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\mucize\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\mucize\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "C:\\Users\\mucize\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\mucize\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\mucize\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
@@ -83,7 +86,7 @@
     "C:\\Users\\mucize\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\6.0.0\\microsoft.extensions.configuration.fileextensions.6.0.0.nupkg.sha512",
     "C:\\Users\\mucize\\.nuget\\packages\\microsoft.extensions.configuration.json\\6.0.0\\microsoft.extensions.configuration.json.6.0.0.nupkg.sha512",
     "C:\\Users\\mucize\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
-    "C:\\Users\\mucize\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\mucize\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\mucize\\.nuget\\packages\\microsoft.extensions.dependencymodel\\6.0.0\\microsoft.extensions.dependencymodel.6.0.0.nupkg.sha512",
     "C:\\Users\\mucize\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\mucize\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\6.0.0\\microsoft.extensions.fileproviders.physical.6.0.0.nupkg.sha512",
