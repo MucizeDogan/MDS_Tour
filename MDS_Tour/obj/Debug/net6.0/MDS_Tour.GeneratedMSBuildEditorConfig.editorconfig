@@ -31,6 +31,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXBpRXhjaGFuZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/ApiHotelSearch/GetCityDestId.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXBpSG90ZWxTZWFyY2hcR2V0Q2l0eURlc3RJZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/ApiHotelSearch/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXBpSG90ZWxTZWFyY2hcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/ApiMovie/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXBpTW92aWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -49,6 +57,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/DestinationCQRS/AddDestination.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGVzdGluYXRpb25DUVJTXEFkZERlc3RpbmF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/DestinationCQRS/GetDestination.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGVzdGluYXRpb25DUVJTXEdldERlc3RpbmF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/DestinationCQRS/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGVzdGluYXRpb25DUVJTXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/Destination/AddDestination.cshtml]

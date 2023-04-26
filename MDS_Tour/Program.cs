@@ -10,6 +10,7 @@ using DTOLayer.DataTrabsferObjects.AnnouncementDTOs;
 using EntityLayer.Concrete;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using MDS_Tour.CQRS.Handlers.DestinationHandlers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -25,6 +26,12 @@ namespace MDS_Tour
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddScoped<GetAllDestinationQueryHandler>();
+            builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
+            builder.Services.AddScoped<CreateDestinationCommandHandler>();
+            builder.Services.AddScoped<RemoveDestinationCommandHandler>();
+            builder.Services.AddScoped<UpdateDestinationCommandHandler>();
+
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             builder.Services.AddDbContext<Context>();
             builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();

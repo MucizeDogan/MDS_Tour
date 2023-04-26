@@ -1,0 +1,38 @@
+﻿@model GetDestinationByIdQueryResult
+@{
+    ViewData["Title"] = "GetDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h2 style="color:lightcoral" class="mb-0">Update Destination</h2>
+            </div>
+            <div class="card-body">
+
+                <form method="post">
+                    <input type="hidden" asp-for="destinationid" />
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">City</label>
+                        <input type="text" asp-for="city" class="form-control" id="basic-default-fullname" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">Day-Night</label>
+                        <input type="text" asp-for="DayNight" class="form-control" id="basic-default-company" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">Price</label>
+                        <input type="text" asp-for="Price" class="form-control" id="basic-default-company" />
+                    </div>
+                    
+                    <button  class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

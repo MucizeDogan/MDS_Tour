@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ApiHotelSearchModel.Result>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+    double score;
+}
+<br />
+<h2 style="color:crimson">Hotel Reservation Page</h2>
+<br />
+
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Hotel Name</th>
+        <th>Hotel Score</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+         <td>@count</td>
+         <td>@item.name</td>
+            @{
+                score = double.Parse(item.reviewScore.ToString()) / 10;
+                if(score<1)
+                {
+                    score = score * 10;
+                }
+            }
+            <td>@score</td>
+         <td><a href="#" class="btn btn-primary">Details</a></td>
+     </tr>    
+    }
+</table>
