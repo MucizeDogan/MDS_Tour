@@ -1,8 +1,11 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.Abstract.AbstractUoW;
 using BusinessLayer.Concrete;
+using BusinessLayer.Concrete.ConcreteUnitofWork;
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
+using DataAccessLayer.UnitofWork;
 using DTOLayer.DataTrabsferObjects.AnnouncementDTOs;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -49,6 +52,13 @@ namespace BusinessLayer.Container
             Services.AddScoped<IAnnouncementService,AnnouncementManager>();
             Services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
 
+            //Account
+            Services.AddScoped<IAccountService, AccountManager>();
+            Services.AddScoped<IAccountDal, EfAccountDal>();
+
+            // UNIT OF WORK
+            Services.AddScoped<IUnitofWorkDal, UnitofWorkDal>();
+       
         }
         public static void CustomValidator(this IServiceCollection services)
         {

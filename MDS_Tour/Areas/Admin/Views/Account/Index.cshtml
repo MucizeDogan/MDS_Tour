@@ -1,0 +1,52 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using MDS_Tour.Areas.Admin.Models
+@model AccountModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h4 style="color:lightcoral" class="mb-0">Unit of Work Personnel Premium Transfer </h4>
+
+            </div>
+            <div class="card-body">
+                <form method="post">
+                   @* @Html.HiddenFor(x=>x.DestinationId)*@
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Sender</label>
+                        <input type="text" asp-for="SenderId" class="form-control" id="basic-default-fullname" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">Recevier</label>
+                        <input type="text" asp-for="ReceiverId" class="form-control" id="basic-default-company" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-email">Amount</label>
+                        <div class="input-group input-group-merge">
+                            <input type="text"
+                                   id="basic-default-email"
+                                   class="form-control"
+                                   asp-for="Amount" />
+                        </div>                       
+                    </div>
+                    
+                    <button  class="btn btn-outline-info" id="btn1">Transfer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+$("#btn1").click(function() {
+    
+    swal("Good job!", "Transaction completed!", "success");
+});
+</script>
