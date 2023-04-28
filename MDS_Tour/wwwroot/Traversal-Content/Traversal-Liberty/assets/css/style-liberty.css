@@ -12621,6 +12621,18 @@ a.text-dark:focus {
   content: "";
 }
 
+.image-container {
+    width: 400px;
+    height: 450px;
+    /*object-fit: cover;*/
+}
+.image-containerforDefault {
+    width: 199.16px;
+    height: 224.05px;
+    /*object-fit: cover;*/
+}
+
+
 .fa-female:before {
   content: "";
 }
