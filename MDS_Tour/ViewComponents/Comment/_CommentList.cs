@@ -11,7 +11,7 @@ namespace MDS_Tour.ViewComponents.Comment
 
         public IViewComponentResult Invoke(int id)
         {
-            var data = _commentManager.TGetListtByIf(id);              
+            var data = _commentManager.TGetListCommentWithoutDestinationAndUser(id);      
             return View(data);
         }
     }

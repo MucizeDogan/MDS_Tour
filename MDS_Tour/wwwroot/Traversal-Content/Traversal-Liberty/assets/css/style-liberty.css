@@ -12621,9 +12621,15 @@ a.text-dark:focus {
   content: "";
 }
 
+.image-containerCoverImage {
+    width: contain ;
+    height: auto;
+    /*object-fit: cover;*/
+}
+
 .image-container {
-    width: 400px;
-    height: 450px;
+    width: 368px;
+    height: 420px;
     /*object-fit: cover;*/
 }
 .image-containerforDefault {
@@ -17085,9 +17091,9 @@ h3.blog-desc-big {
 }
 
 span.big-letter {
-  font-size: 85px;
+  font-size: 55px;
   color: var(--heading-color);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 p.alphabet {

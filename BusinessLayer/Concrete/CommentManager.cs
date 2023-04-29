@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
             return _commentDal.GetListCommentWithDestination();
         }
 
+        public List<Comment> TGetListCommentWithoutDestinationAndUser(int id)
+        {
+            return _commentDal.GetListCommentWithoutDestinationAndUser(id);
+        }
+
         public List<Comment> TGetListtByIf(int id) //Destination id)
         {
             return _commentDal.GetListByIf(x => x.DestinationId == id);
