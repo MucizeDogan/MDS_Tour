@@ -2,6 +2,7 @@
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MDS_Tour.Controllers
@@ -10,9 +11,19 @@ namespace MDS_Tour.Controllers
     public class CommentController : Controller
     {
         CommentManager _commentManager = new CommentManager(new EfCommentDal()); 
-        [HttpGet]
-        public PartialViewResult AddComment()
+        private readonly UserManager<AppUser> _userManager;
+
+        public CommentController(UserManager<AppUser> userManager)
         {
+            _userManager = userManager;
+        }
+
+        [HttpGet]
+        public async Task<PartialViewResult> AddComment(int id)
+        {
+            //var data = await _userManager.FindByNameAsync(User.Identity.Name);  //Kullanıcı adına göre bul bulduktan sonra bu bulduğun id yi ViewBag.userID ye yapıştır
+            //ViewBag.userId = data.Id;
+            //ViewBag.DestId=id;
             return PartialView();
         }
         [HttpPost]

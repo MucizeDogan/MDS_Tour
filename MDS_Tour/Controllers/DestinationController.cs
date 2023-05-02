@@ -21,6 +21,7 @@ namespace MDS_Tour.Controllers
         public IActionResult DestinationDetails(int id)
         {
             ViewBag.i = id;
+            
             var data = destinationManager.TgetById(id);
             return View(data);
         }

@@ -12,26 +12,24 @@
                       spellcheck="false"></textarea>
         </div>
         <div class="input-grids row">
-
-            <div class="form-group col-lg-6">
+        
+            @*<div class="form-group col-lg-6">
                 <input type="text" name="CommentUser" class="form-control" placeholder="Your Name*"
                        required="">
+            </div>*@
+             <div class="form-group col-lg-6">
+                <input type="hidden"  value="@Model." name="DestinationId"  class="form-control" placeholder="Destination ID" required="">
             </div>
             <div class="form-group col-lg-6">
                 <input type="hidden"  value="@Model.DestinationId" name="DestinationId"  class="form-control" placeholder="Destination ID" required="">
             </div>
         </div>
-
+        <h5>User Id: @ViewBag.userId</h5>
+        
         <div class="submit text-right">
             <button class="btn btn-style btn-primary">Post Comment </button>
         </div>
-        Toastify({
-
-            text: "This is a toast",
-
-            duration: 3000
-
-            }).showToast();
+        
     </form>
 </div>
 
