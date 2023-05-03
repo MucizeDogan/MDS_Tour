@@ -30,7 +30,7 @@ namespace MDS_Tour.Controllers
             ViewBag.i = id;
             var data2 = await _userManager.FindByNameAsync(User.Identity.Name);  //Kullanıcı adına göre bul bulduktan sonra bu bulduğun id yi ViewBag.userID ye yapıştır
             ViewBag.userId = data2.Id;
-            var data = destinationManager.TgetById(id);
+            var data = destinationManager.TGetDestinationWithGuideList(id);
             return View(data);
         }
         

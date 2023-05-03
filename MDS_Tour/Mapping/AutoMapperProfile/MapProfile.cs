@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DTOLayer.DataTrabsferObjects.AnnouncementDTOs;
 using DTOLayer.DataTrabsferObjects.AppUserDTOs;
+using DTOLayer.DataTrabsferObjects.ContactDTOs;
 using EntityLayer.Concrete;
 
 namespace MDS_Tour.Mapping.AutoMapperProfile
@@ -24,7 +25,8 @@ namespace MDS_Tour.Mapping.AutoMapperProfile
             CreateMap<AppUserLogInDTO, AppUser>();
             CreateMap<AppUser, AppUserLogInDTO>();
 
-            
+            CreateMap<SendMessageDto, ContactUs>().ReverseMap();
+
         }
     }
 }

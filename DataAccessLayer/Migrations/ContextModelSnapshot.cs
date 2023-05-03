@@ -297,7 +297,6 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MapLocation")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
@@ -374,10 +373,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("Details2")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("GuideId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GuidesGuideId")
+                    b.Property<int>("GuideId")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
@@ -394,7 +390,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("DestinationId");
 
-                    b.HasIndex("GuidesGuideId");
+                    b.HasIndex("GuideId");
 
                     b.ToTable("Destinations");
                 });
@@ -714,7 +710,9 @@ namespace DataAccessLayer.Migrations
                 {
                     b.HasOne("EntityLayer.Concrete.Guides", "Guides")
                         .WithMany("Destinations")
-                        .HasForeignKey("GuidesGuideId");
+                        .HasForeignKey("GuideId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Guides");
                 });
