@@ -569,7 +569,7 @@ mark,
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  height: contain;
 }
 
 .img-thumbnail {
@@ -12622,8 +12622,8 @@ a.text-dark:focus {
 }
 
 .image-containerCoverImage {
-    width: contain ;
-    height: auto;
+    width: 1100px ;
+    height: 560px;
     /*object-fit: cover;*/
 }
 

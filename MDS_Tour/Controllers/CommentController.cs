@@ -19,11 +19,12 @@ namespace MDS_Tour.Controllers
         }
 
         [HttpGet]
-        public async Task<PartialViewResult> AddComment(int id)
+        public PartialViewResult AddComment()
         {
             //var data = await _userManager.FindByNameAsync(User.Identity.Name);  //Kullanıcı adına göre bul bulduktan sonra bu bulduğun id yi ViewBag.userID ye yapıştır
             //ViewBag.userId = data.Id;
             //ViewBag.DestId=id;
+
             return PartialView();
         }
         [HttpPost]
