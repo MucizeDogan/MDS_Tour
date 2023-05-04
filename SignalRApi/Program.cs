@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using SignalRApi.DAL;
+using Microsoft.Extensions.Configuration;
+
+
 namespace SignalRApi
 {
     public class Program
@@ -8,11 +13,18 @@ namespace SignalRApi
 
             // Add services to the container.
 
+            //PostreSql i ekleme
+            builder.Services.AddEntityFrameworkNpgsql().AddDbContext<Context>(opt =>
+        opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
