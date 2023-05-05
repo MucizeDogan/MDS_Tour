@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SignalRApi.DAL;
 using Microsoft.Extensions.Configuration;
-
+using SignalRApi.Model;
 
 namespace SignalRApi
 {
@@ -17,6 +17,8 @@ namespace SignalRApi
             builder.Services.AddEntityFrameworkNpgsql().AddDbContext<Context>(opt =>
         opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.AddScoped<VisitorService>();
+            builder.Services.AddSignalR();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

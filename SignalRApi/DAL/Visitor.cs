@@ -6,8 +6,7 @@
         Berlin=2,
         Ankara=3,
         Londra=4,
-        Washington=5,
-        Bursa=6
+        Bursa=5
         
     }
     public class Visitor

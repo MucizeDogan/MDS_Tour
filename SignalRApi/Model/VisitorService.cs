@@ -28,7 +28,7 @@ namespace SignalRApi.Model
         {
              await _context.Visitors.AddAsync(visitor); //visitor parametresinden gelen değerleri ekle
              await _context.SaveChangesAsync();
-            await _hubContext.Clients.All.SendAsync("CallVisitorList", GetVisitorChartList()); //SignalR da çağırılacak olan metotlar SendAsync metodu ile çağırılıyor.
+            await _hubContext.Clients.All.SendAsync("CallVisitorList", "aaa"); //SignalR da çağırılacak olan metotlar SendAsync metodu ile çağırılıyor.
             // CallVisitorList i çağırdığımda sen bana GetVisitorChartList i getir dedik yukarıda
         }
 
@@ -36,7 +36,7 @@ namespace SignalRApi.Model
         public List<VisitorChart> GetVisitorChartList()
         {
             List<VisitorChart> visitorCharts = new List<VisitorChart>();
-            using(var command=_context.Database.GetDbConnection().CreateCommand())    //Burada bir tane komut oluşturacağız.
+            using(var command=_context.Database.GetDbConnection().CreateCommand())    //Burada bir tane sorgu komutu  oluşturacağız.--->command
             {
                 command.CommandText = "sorgu gelecek";  //Command isimli değişkenimden gelen kısma bir CommandText ataması yap yani komut değeri ata  ="sorgu gelecek"
                 command.CommandType = System.Data.CommandType.Text; // Göndermiş olduğum Command in CommandType ı text 
@@ -47,7 +47,7 @@ namespace SignalRApi.Model
                     {
                         VisitorChart visitorChart = new VisitorChart(); //VisitorChart sınıfından bir visitorchart nesnesi örnekledik.
                         visitorChart.VisitDate = reader.GetDateTime(0).ToShortDateString(); //visitorChartın visitorDate ine  okunan değer içerisinde tarih değerini al 
-                        Enumerable.Range(1, 6).ToList().ForEach(x =>//bir Enumarable oluşturacağız ve buna Range ile aralık vereceğiz bu aralığıda oluşrduğumuz Ecity deki şehir sayısına göre vereceğiz
+                        Enumerable.Range(1, 5).ToList().ForEach(x =>//bir Enumarable oluşturacağız ve buna Range ile aralık vereceğiz bu aralığıda oluşrduğumuz Ecity deki şehir sayısına göre vereceğiz
                         // Her biri için şunu yap(ForEach(x=>) 
                         {
                             visitorChart.Counts.Add(reader.GetInt32(x));   // Türetmiş olduğum visitorChart ın Counts un içerisine ekle okumuş olduğum sayısal değeri ilgili chartımızın içerisine
@@ -62,3 +62,12 @@ namespace SignalRApi.Model
         }
     }
 }
+
+
+
+//Her bir gün 5 saniyede tamamlanacak.
+//Her günde 5 farklı şehre random değer gelecek.
+//Totalde 10 ardışık günün değeri tabloya eklencek
+//İşlemler toplam 50 saniye sürecek
+//Her saniyede tavlonun son hali gözükecek 
+//Toplamda 50 satır kayıt eklenmiş olacak
