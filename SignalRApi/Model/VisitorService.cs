@@ -38,7 +38,7 @@ namespace SignalRApi.Model
             List<VisitorChart> visitorCharts = new List<VisitorChart>();
             using(var command=_context.Database.GetDbConnection().CreateCommand())    //Burada bir tane sorgu komutu  oluşturacağız.--->command
             {
-                command.CommandText = "sorgu gelecek";  //Command isimli değişkenimden gelen kısma bir CommandText ataması yap yani komut değeri ata  ="sorgu gelecek"
+                command.CommandText = "Select * From crosstab('Select VisitDate,City,CityVisitCountFrom Visitors Order By 1, 2') As ct(Visitdate date,City1 int, City2 int, City3 int, City4 int, City5 int); ";    //Command isimli değişkenimden gelen kısma bir CommandText ataması yap yani komut değeri ata  ="sorgu gelecek"
                 command.CommandType = System.Data.CommandType.Text; // Göndermiş olduğum Command in CommandType ı text 
                 _context.Database.OpenConnection(); //Bağlantıyı aç sorgu döndüreceğiz.
                 using(var reader = command.ExecuteReader())    // Bir tane okuyucu oluştur(reader) command den gelen değeri oku(executeReader) 

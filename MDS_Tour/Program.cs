@@ -52,7 +52,7 @@ namespace MDS_Tour
             //Announcement Add Validasyon için 
             builder.Services.CustomValidator();
 
-            builder.Services.AddControllersWithViews().AddFluentValidation();
+            //builder.Services.AddControllersWithViews().AddFluentValidation();
 
 
             // Proje seviyesinde authorizationu kullanmak.
