@@ -22,6 +22,10 @@ namespace SignalRConsume.Controllers
         {
             return View();
         }
+        public IActionResult Index3()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
