@@ -28,7 +28,7 @@ namespace SignalRApiForSql.Models
         {
             await _context.Visitors.AddAsync(visitor); //visitor parametresinden gelen değerleri ekle
             await _context.SaveChangesAsync();
-            await _hubContext.Clients.All.SendAsync("CallVisitorList", "aaa"); //SignalR da çağırılacak olan metotlar SendAsync metodu ile çağırılıyor.
+            await _hubContext.Clients.All.SendAsync("ReceiveVisitorList", GetVisitorChartList()); //SignalR da çağırılacak olan metotlar SendAsync metodu ile çağırılıyor.
             // CallVisitorList i çağırdığımda sen bana GetVisitorChartList i getir dedik yukarıda
         }
 
@@ -38,7 +38,7 @@ namespace SignalRApiForSql.Models
             List<VisitorChart> visitorCharts = new List<VisitorChart>();
             using (var command = _context.Database.GetDbConnection().CreateCommand())    //Burada bir tane sorgu komutu  oluşturacağız.--->command
             {
-                command.CommandText = "query";    //Command isimli değişkenimden gelen kısma bir CommandText ataması yap yani komut değeri ata  ="sorgu gelecek"
+                command.CommandText = "Select _Date,[1],[2],[3],[4],[5] from (select[city],CityVisitCount,Cast([VisitDate] as Date) as _Date from Visitors) as visitTable Pivot(Sum(CityVisitCount) For City in ([1],[2],[3],[4],[5])) as pivottable order by _Date asc";    //Command isimli değişkenimden gelen kısma bir CommandText ataması yap yani komut değeri ata  ="sorgu gelecek"
                 command.CommandType = System.Data.CommandType.Text; // Göndermiş olduğum Command in CommandType ı text 
                 _context.Database.OpenConnection(); //Bağlantıyı aç sorgu döndüreceğiz.
                 using (var reader = command.ExecuteReader())    // Bir tane okuyucu oluştur(reader) command den gelen değeri oku(executeReader) 
@@ -50,7 +50,14 @@ namespace SignalRApiForSql.Models
                         Enumerable.Range(1, 5).ToList().ForEach(x =>//bir Enumarable oluşturacağız ve buna Range ile aralık vereceğiz bu aralığıda oluşrduğumuz Ecity deki şehir sayısına göre vereceğiz
                         // Her biri için şunu yap(ForEach(x=>) 
                         {
-                            visitorChart.Counts.Add(reader.GetInt32(x));   // Türetmiş olduğum visitorChart ın Counts un içerisine ekle okumuş olduğum sayısal değeri ilgili chartımızın içerisine
+                            if (DBNull.Value.Equals(reader[x]))
+                            {
+                                visitorChart.Counts.Add(0);
+                            }
+                            else
+                            {
+                                visitorChart.Counts.Add(reader.GetInt32(x));   // Türetmiş olduğum visitorChart ın Counts un içerisine ekle okumuş olduğum sayısal değeri ilgili chartımızın içerisine
+                            }
                         });
 
                         visitorCharts.Add(visitorChart); //visitorCharts ın içerisine ekle visitorChart ı 

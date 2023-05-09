@@ -64,6 +64,12 @@ namespace MDS_Tour
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
             builder.Services.AddMvc();
+
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Login/SignIn/";
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
