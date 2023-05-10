@@ -12,10 +12,12 @@ namespace MDS_Tour.Areas.Admin.Controllers
     public class RoleController : Controller
     {
         private readonly RoleManager<AppRole> _roleManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public RoleController(RoleManager<AppRole> roleManager)
+        public RoleController(RoleManager<AppRole> roleManager, UserManager<AppUser> userManager)
         {
             _roleManager = roleManager;
+            _userManager = userManager;
         }
         [Route("Index")]
         public IActionResult Index()
@@ -74,6 +76,31 @@ namespace MDS_Tour.Areas.Admin.Controllers
             data.Name = updateModel.RoleName;
             await _roleManager.UpdateAsync(data);
             return RedirectToAction("Index");
+        }
+
+        [Route("UserList")]
+        public IActionResult UserList()
+        {
+            var data = _userManager.Users.ToList();
+            return View(data);
+        }
+
+        [Route("AssignRole/{id}")]
+        public async Task<IActionResult> AssignRole(int id)
+        {
+            var user = _userManager.Users.FirstOrDefault(x => x.Id == id); //Rol ata butonuna tıkladığım zaman tıkladığım kullancının bilgileri gelcek
+            var roles = _roleManager.Roles.ToList();
+            var userRoles = await _userManager.GetRolesAsync(user);
+            List<RoleAssignModel > roleAssignModel = new List<RoleAssignModel>();
+            foreach (var item in roles)
+            {
+                RoleAssignModel model = new RoleAssignModel();
+                model.RoleId=item.Id;
+                model.RoleName = item.Name;
+                model.RoleExist = userRoles.Contains(item.Name);      //Kullanıcının rolleri içerisinde  item dan gelen name değeri var mı? Eğer varsa exist True dönecek
+                roleAssignModel.Add(model);
+            }
+            return View(roleAssignModel);
         }
     }
 }
