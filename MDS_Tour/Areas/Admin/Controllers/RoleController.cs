@@ -84,11 +84,12 @@ namespace MDS_Tour.Areas.Admin.Controllers
             var data = _userManager.Users.ToList();
             return View(data);
         }
-
+        [HttpGet]
         [Route("AssignRole/{id}")]
         public async Task<IActionResult> AssignRole(int id)
         {
             var user = _userManager.Users.FirstOrDefault(x => x.Id == id); //Rol ata butonuna tıkladığım zaman tıkladığım kullancının bilgileri gelcek
+            TempData["Userid"]=user.Id;
             var roles = _roleManager.Roles.ToList();
             var userRoles = await _userManager.GetRolesAsync(user);
             List<RoleAssignModel > roleAssignModel = new List<RoleAssignModel>();
@@ -101,6 +102,25 @@ namespace MDS_Tour.Areas.Admin.Controllers
                 roleAssignModel.Add(model);
             }
             return View(roleAssignModel);
+        }
+        [HttpPost]
+        [Route("AssignRole/{id}")]
+        public async Task<IActionResult> AssignRole(List<RoleAssignModel> model)   //Aynı anda birden fazla rol göndermek istediğimiz için List<RoleAssginModel> dedik
+        {
+            var userid =(int) TempData["Userid"];
+            var user = _userManager.Users.FirstOrDefault(x => x.Id == userid);
+            foreach (var item in model)
+            {
+                if(item.RoleExist)  //Eğer ki item ın içerisinde BU rol varsa;
+                {
+                    await _userManager.AddToRoleAsync(user, item.RoleName); //Rolün içine user a roleName i ekliyoruz.  True olanları user ın içine atıyoruz. Checkbox larda seçili olan değerler atanacak. Seçili olmayanlar atanmayacak.
+                }
+                else // Eğer item Roleexist içermiyorsa (Yani False)
+                {
+                    await _userManager.RemoveFromRoleAsync(user, item.RoleName);  
+                }
+            }
+            return RedirectToAction("UserList");
         }
     }
 }

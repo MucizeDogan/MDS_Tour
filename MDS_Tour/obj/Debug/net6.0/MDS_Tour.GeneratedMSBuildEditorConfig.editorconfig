@@ -315,6 +315,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX0NvbW1lbnRMaXN0XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Views/Shared/Components/_GuideList/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX0d1aWRlTGlzdFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Views/Shared/Components/_LastDestinations/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX0xhc3REZXN0aW5hdGlvbnNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Views/Shared/Components/_PlatformSetting/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX1BsYXRmb3JtU2V0dGluZ1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Views/Shared/Components/_ProfileInformation/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX1Byb2ZpbGVJbmZvcm1hdGlvblxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Views/Shared/Components/_SubAbout/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX1N1YkFib3V0XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
