@@ -4,10 +4,84 @@
 <link href="~/DataTables/DataTables-1.13.4/css/dataTables.bootstrap5.css" />
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_NewUserLayout.cshtml";
 }
 
-<h1>TOURS</h1>
+
+@if (Model.Count() == 0)
+{
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h4>We currently do not have an active tour.</h4>
+}
+else
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <br>
+                    <h5  class="card-title">ACTIVE DESTINATIONS</h5>
+                    <br>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    @*  <div class="card-body">
+                <p class="card-text">Add <code>.table-bordered</code> for borders on all sides of the table and cells.</p>
+                </div>*@
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>CITY</th>
+                                    <th>DURATION</th>
+                                    <th>CAPACITY</th>
+                                    <th>PRICE</th>
+                                    <th>DETAILS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="border-1">
+
+                                        <td>@item.DestinationId </td>
+                                        <td> @item.City</td>
+                                        <td>@item.DayNight</td>
+                                        <td>@item.Capacity</td>
+                                        <td>€@item.Price</td>
+                                        <td><a href="/Destination/DestinationDetails/@item.DestinationId" class="btn btn-outline-info"> DETAILS </a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+@*<h1>TOURS</h1>
 
 <table id="tblDestinations" class="table table-bordered">
     <thead>
@@ -46,7 +120,7 @@
         );
     });
 </script>
-
+*@
 
 
 

@@ -2,12 +2,95 @@
 @model List<Reservation>
 @{
     ViewData["Title"] = "MyOldReservation";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_NewUserLayout.cshtml";
 }
 
-<h1>My Old Reservation</h1>
+@if (Model.Count() == 0)
+{
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h4>You have no previous reservation</h4>
+}
+else
+{
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <br>
+                <h5 class="card-title">My Old Reservation Table</h5>
+                <br>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+              @*  <div class="card-body">
+                    <p class="card-text">Add <code>.table-bordered</code> for borders on all sides of the table and cells.</p>
+                </div>*@
+                <div class="table-responsive">
+                    <table class="table table-bordered mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>DESTINATION</th>
+                                <th>COUNT OF PERSON</th>
+                                <th>RESERVATION DATE</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="border-1">
 
-@if(Model.Count()==0)
+                                    <td>@item.ReservationId </td>
+                                    <td> @item.Destination.City</td>
+                                    <td>@item.PersonCount</td>
+                                    <td>@item.ReservationDate.ToShortDateString()</td>
+                                    <td>@item.Status</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@if(Model.Count()==0)
 {
     <br />
 <br /><br />
@@ -61,4 +144,4 @@ else
         $('#tblOld').DataTable(
         );
     });
-</script>
+</script>*@
