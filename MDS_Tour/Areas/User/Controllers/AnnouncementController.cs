@@ -21,8 +21,10 @@ namespace MDS_Tour.Areas.User.Controllers
 
         public IActionResult Index()
         {
+
             var data = _mapper.Map<List<AnnouncementListDTO>>(_announcementService.TGetList());
             return View(data);
+
         }
     }
 }

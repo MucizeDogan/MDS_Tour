@@ -1,10 +1,77 @@
-﻿  @model MDS_Tour.Areas.User.Models.UserEditViewModel
+﻿@model MDS_Tour.Areas.User.Models.UserEditViewModel
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_NewUserLayout.cshtml";
 }
 
-<h1> PROFILE EDIT</h1>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <br>
+                <h5 class="card-title">PROFILE EDIT</h5>
+
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <p class="card-text">You can update your profile and password information here</p>
+
+                    <form method="post" enctype="multipart/form-data">
+                        <div>
+                            <label style="font-size:medium">Name:</label>
+                            <input type="text" asp-for="name" class="form-control">
+                        </div>
+                        <br />
+                        <div>
+                            <label style="font-size:medium">Surname:</label>
+                            <input type="text" asp-for="surname" class="form-control">
+                        </div>
+                        <br />
+                        <div>
+                            <label style="font-size:medium">Password:</label>
+                            <input type="text" asp-for="password" class="form-control">
+                        </div>
+                        <br />
+                        <div>
+                            <label style="font-size:medium">Confirm Password:</label>
+                            <input type="text" asp-for="confirmpassword" class="form-control">
+                        </div>
+                        <br />
+                        <div>
+                            <label style="font-size:medium">Phone Number:</label>
+                            <input type="text" asp-for="phonenumber" class="form-control">
+                        </div>
+                        <br />
+                        <div>
+                            <label style="font-size:medium">Email:</label>
+                            <input type="email" asp-for="mail" class="form-control">
+                        </div>
+                        <br />
+                        <div class=" form-group">
+                            <label>Choose Image</label>
+                            <input type="file" asp-for="Image" />
+                        </div>
+                        <br />
+
+                        <button class="btn btn-primary">Edit </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<h1> PROFILE EDIT</h1>
 <form method="post" enctype="multipart/form-data">
    <div>
     <label style="font-size:medium">Name:</label>
@@ -44,3 +111,4 @@
 
      <button class="btn btn-primary">Edit </button>
 </form>
+*@
