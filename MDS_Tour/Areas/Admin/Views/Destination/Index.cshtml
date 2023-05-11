@@ -17,7 +17,7 @@
             <th>PRICE</th>
             <th>CAPACITY</th>
             <th>SEE ON SITE</th>
-            <th>DETAILS</th>
+            @*<th>DETAILS</th>*@
             <th>SETTINGS</th>
 
         </tr>
@@ -33,7 +33,7 @@
                 <td>€ @item.Price</td>
                 <td>@item.Capacity</td>
                 <td><a href="/Destination/DestinationDetails/@item.DestinationId" class="btn btn-info">SEE ON SITE</a></td>
-                <td><a href="#" class="btn btn-primary">DETAILS</a></td>
+                @*<td><a href="#" class="btn btn-primary">DETAILS</a></td>*@
                 <td>
                     <a href="/Admin/Destination/UpdateDestination/@item.DestinationId" class="btn btn-success">UPDATE</a>
                     <a href="/Admin/Destination/DeleteDestination/@item.DestinationId" class="btn btn-danger">DELETE</a>

@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 namespace MDS_Tour.Areas.User.Controllers
 {
@@ -21,24 +22,24 @@ namespace MDS_Tour.Areas.User.Controllers
             _userManager = userManager;
         }
 
-        public async Task <IActionResult> MyActiveReservation()
+        public async Task<IActionResult> MyActiveReservation()
         {
-            
+
             var data = await _userManager.FindByNameAsync(User.Identity.Name);
             var datalist = _reservationManager.GetListReservationByAccepted(data.Id);
-            
+
             return View(datalist);
         }
-        public async Task <IActionResult> MyOldReservation()
+        public async Task<IActionResult> MyOldReservation()
         {
             var data = await _userManager.FindByNameAsync(User.Identity.Name);
-            var dataList = _reservationManager.GetListReservationByOld(data.Id);           
-            return View(dataList);            
+            var dataList = _reservationManager.GetListReservationByOld(data.Id);
+            return View(dataList);
         }
         public async Task<IActionResult> MyApprovalReservation()
         {
             var data = await _userManager.FindByNameAsync(User.Identity.Name);
-            var dataList=_reservationManager.GetListReservationByWaitApproval(data.Id); 
+            var dataList = _reservationManager.GetListReservationByWaitApproval(data.Id);
             Reservation reservation = new Reservation();
             reservation.Status = "Waiting";
             return View(dataList);
@@ -50,8 +51,8 @@ namespace MDS_Tour.Areas.User.Controllers
             List<SelectListItem> data = (from x in _destinationManager.TGetList()
                                          select new SelectListItem
                                          {
-                                             Text=x.City,
-                                             Value=x.DestinationId.ToString()
+                                             Text = x.City,
+                                             Value = x.DestinationId.ToString()
                                          }).ToList();
             ViewBag.v = data;
             return View();
@@ -59,10 +60,22 @@ namespace MDS_Tour.Areas.User.Controllers
         [HttpPost]
         public IActionResult NewReservation(Reservation p)
         {
-            p.AppUserId = 6;
-            _reservationManager.Tadd(p);
+            //if (!ModelState.IsValid)
+            //{
+            //    List<SelectListItem> data = (from x in _destinationManager.TGetList()
+            //                                 select new SelectListItem
+            //                                 {
+            //                                     Text = x.City,
+            //                                     Value = x.DestinationId.ToString()
+            //                                 }).ToList();
+            //    ViewBag.v = data;
+            //    return View(p);
+            //}
+            p.AppUserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             p.Status = "Waiting";
-             return RedirectToAction("MyActiveReservation") ;
+            _reservationManager.Tadd(p);
+            //ViewBag.v = p.DestinationId;
+            return RedirectToAction("MyActiveReservation");
         }
     }
 }

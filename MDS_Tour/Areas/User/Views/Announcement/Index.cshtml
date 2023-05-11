@@ -1,0 +1,22 @@
+﻿@model List<DTOLayer.DataTrabsferObjects.AnnouncementDTOs.AnnouncementListDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<br />
+<h1>ANNOUNCEMENTS</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.Title</td>
+        <td>@item.Content</td>
+    </tr>
+    }
+</table>
+
