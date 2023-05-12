@@ -15,6 +15,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace MDS_Tour
 {
@@ -55,7 +56,13 @@ namespace MDS_Tour
 
             //builder.Services.AddControllersWithViews().AddFluentValidation();
 
+            //Dil desteði için (Lokalleþtirme)
+            builder.Services.AddLocalization(opt =>
+            {
+                opt.ResourcesPath = "Resources";
+            });
 
+            builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
             // Proje seviyesinde authorizationu kullanmak.
             builder.Services.AddMvc(config =>
             {
@@ -89,6 +96,11 @@ namespace MDS_Tour
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            var supportedCultures = new[] { "tr" ,"en", "fr", "sp", "ru", "de"  };
+            var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0]).AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures);
+            app.UseRequestLocalization(localizationOptions);
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Login}/{action=SignIn}/{id?}");
