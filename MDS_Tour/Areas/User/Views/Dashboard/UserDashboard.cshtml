@@ -113,7 +113,7 @@
                 <li class="nav-item mr-auto">
                     <a class="navbar-brand" href="index.html">
                         <img class="brand-logo" alt="Chameleon admin logo" src="~/user/theme-assets/images/logo/logo.png" />
-                        <h3 class="brand-text">Chameleon</h3>
+                        <h3 class="brand-text">MDS TOUR</h3>
                     </a>
                 </li>
                 <li class="nav-item d-md-none"><a class="nav-link close-navbar"><i class="ft-x"></i></a></li>
@@ -121,35 +121,40 @@
         </div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item">
+                    <a href="/User/Dashboard/UserDashboard/"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+                </li>
+                <li class=" nav-item">
+                    <a href="/User/Profile/Index/"><i class="ft-user"></i><span class="menu-title" data-i18n="">My Profile</span></a>
+                </li>
+                <li class=" nav-item">
+                    <a href="/User/Destination/Index"><i class="ft-map"></i><span class="menu-title" data-i18n="">Destinations</span></a>
+                </li>
+                <li class=" nav-item">
+                    <a href="/User/Reservation/MyActiveReservation"><i class="ft-droplet"></i><span class="menu-title" data-i18n="">Active Reservations</span></a>
+                </li>
+                <li class=" nav-item">
+                    <a href="/User/Reservation/MyOldReservation"><i class="ft-map-pin"></i><span class="menu-title" data-i18n="">Old Reservations</span></a>
+                </li>
                 <li class="active">
-                    <a href="index.html"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+                    <a href="/User/Reservation/MyApprovalReservation/"><i class="ft-cloud"></i><span class="menu-title" data-i18n="">Waiting Reservation</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="charts.html"><i class="ft-pie-chart"></i><span class="menu-title" data-i18n="">Charts</span></a>
+                    <a href="/User/Reservation/NewReservation"><i class="ft-navigation"></i><span class="menu-title" data-i18n="">New Reservation</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="icons.html"><i class="ft-droplet"></i><span class="menu-title" data-i18n="">Icons</span></a>
+                    <a href="/User/MyComments/Index/"><i class="ft-command"></i><span class="menu-title" data-i18n="">My Comments</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="cards.html"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Cards</span></a>
+                    <a href="/User/Announcement/Index/"><i class="ft-radio"></i><span class="menu-title" data-i18n="">Announcements</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="buttons.html"><i class="ft-box"></i><span class="menu-title" data-i18n="">Buttons</span></a>
+                    <a href="#"><i class="ft-log-out"></i><span class="menu-title" data-i18n="">Log Out</span></a>
                 </li>
-                <li class=" nav-item">
-                    <a href="typography.html"><i class="ft-bold"></i><span class="menu-title" data-i18n="">Typography</span></a>
-                </li>
-                <li class=" nav-item">
-                    <a href="tables.html"><i class="ft-credit-card"></i><span class="menu-title" data-i18n="">Tables</span></a>
-                </li>
-                <li class=" nav-item">
-                    <a href="form-elements.html"><i class="ft-layout"></i><span class="menu-title" data-i18n="">Form Elements</span></a>
-                </li>
-                <li class=" nav-item">
-                    <a href="https://themeselection.com/demo/chameleon-admin-template/documentation"><i class="ft-book"></i><span class="menu-title" data-i18n="">Documentation</span></a>
-                </li>
+
             </ul>
-        </div><a class="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1" href="https://themeselection.com/products/chameleon-admin-modern-bootstrap-webapp-dashboard-html-template-ui-kit/" target="_blank">Download PRO!</a>
+        </div>
+          <a class="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1" href="/Default/Index" target="_blank">Go To Site</a>
         <div class="navigation-background"></div>
     </div>
 
@@ -180,16 +185,16 @@
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-                                    <h4 class="card-title">Content title</h4>
-                                    <p class="card-text">
-                                        Jelly beans sugar plum cheesecake cookie oat cake soufflé.Tootsie roll bonbon liquorice tiramisu pie powder.Donut sweet
-                                        roll marzipan pastry cookie cake tootsie roll oat cake cookie.Jelly beans sugar plum cheesecake cookie oat cake soufflé. Tart lollipop carrot cake sugar plum.
-                                    </p>
-                                    <p class="card-text">
-                                        Sweet roll marzipan pastry halvah. Cake bear claw sweet. Tootsie roll pie marshmallow lollipop chupa chups donut fruitcake
-                                        cake.Jelly beans sugar plum cheesecake cookie oat cake soufflé. Tart lollipop carrot cake sugar plum. Marshmallow
-                                        wafer tiramisu jelly beans.
-                                    </p>
+            <ul class="list-group">
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name Surname:</strong> &nbsp; @ViewBag.userNameSurname</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Username:</strong> &nbsp; @ViewBag.userName</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Phone:</strong> &nbsp; @ViewBag.userPhone</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">E-Mail:</strong> &nbsp; @ViewBag.userMail</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; Türkiye</li>
+                <li class="list-group-item border-0 ps-0 pb-0">
+                   
+                </li>
+            </ul>
                                 </div>
                             </div>
                         </div>

@@ -1,9 +1,4 @@
-﻿@{
-    Layout = null;
-}
-
-@*HEADER*@
-
+﻿@inject IHttpContextAccessor HttpContextAccessor
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <head>
@@ -83,15 +78,17 @@
                         </li>
                         <li class="dropdown dropdown-user nav-item">
                             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                                <span class="avatar avatar-online"><img src="@ViewBag.userImage" alt="avatar"><i></i></span>
+                                <span class="avatar avatar-online"><img src="TEST.userImage" alt="avatar"><i></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="arrow_box_right">
                                     <a class="dropdown-item" href="#">
                                         <span class="avatar avatar-online">
-                                            <img src="@ViewBag.userImage" alt="avatar">
-                                            <span class="user-name text-bold-700 ml-1"> @ViewBag.userName</span>
-                                        </span>
+                                            <img src="TEST.userImage" alt="avatar">
+                                            <span class="user-name text-bold-700 ml-1" id="userName">@HttpContextAccessor.HttpContext.User.Identity.Name </span>
+                                            
+@*                                            @HttpContextAccessor.HttpContext.User.Identity.Name.Split(' ')[1]
+*@                                        </span>
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="/User/Profile/Index/"><i class="ft-user"></i> Edit Profile</a>
@@ -126,34 +123,39 @@
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class=" nav-item">
-                    <a href="index.html"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+                    <a href="/User/Dashboard/UserDashboard/"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="charts.html"><i class="ft-pie-chart"></i><span class="menu-title" data-i18n="">Charts</span></a>
+                    <a href="/User/Profile/Index/"><i class="ft-user"></i><span class="menu-title" data-i18n="">My Profile</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="icons.html"><i class="ft-droplet"></i><span class="menu-title" data-i18n="">Icons</span></a>
+                    <a href="/User/Destination/Index"><i class="ft-map"></i><span class="menu-title" data-i18n="">Destinations</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="cards.html"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Cards</span></a>
+                    <a href="/User/Reservation/MyActiveReservation"><i class="ft-droplet"></i><span class="menu-title" data-i18n="">Active Reservations</span></a>
+                </li>
+                <li class=" nav-item">
+                    <a href="/User/Reservation/MyOldReservation"><i class="ft-map-pin"></i><span class="menu-title" data-i18n="">Old Reservations</span></a>
                 </li>
                 <li class="active">
-                    <a href="buttons.html"><i class="ft-box"></i><span class="menu-title" data-i18n="">Buttons</span></a>
+                    <a href="/User/Reservation/MyApprovalReservation/"><i class="ft-cloud"></i><span class="menu-title" data-i18n="">Waiting Reservation</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="typography.html"><i class="ft-bold"></i><span class="menu-title" data-i18n="">Typography</span></a>
+                    <a href="/User/Reservation/NewReservation"><i class="ft-navigation"></i><span class="menu-title" data-i18n="">New Reservation</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="tables.html"><i class="ft-credit-card"></i><span class="menu-title" data-i18n="">Tables</span></a>
+                    <a href="/User/MyComments/Index/"><i class="ft-command"></i><span class="menu-title" data-i18n="">My Comments</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="form-elements.html"><i class="ft-layout"></i><span class="menu-title" data-i18n="">Form Elements</span></a>
+                    <a href="/User/Announcement/Index/"><i class="ft-radio"></i><span class="menu-title" data-i18n="">Announcements</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="https://themeselection.com/demo/chameleon-admin-template/documentation"><i class="ft-book"></i><span class="menu-title" data-i18n="">Documentation</span></a>
+                    <a href="#"><i class="ft-log-out"></i><span class="menu-title" data-i18n="">Log Out</span></a>
                 </li>
+
             </ul>
-        </div><a class="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1" href="https://themeselection.com/products/chameleon-admin-modern-bootstrap-webapp-dashboard-html-template-ui-kit/" target="_blank">Download PRO!</a>
+        </div>
+        <a class="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1" href="/Default/Index" target="_blank">Go To Site</a>
         <div class="navigation-background"></div>
     </div>
 
@@ -191,8 +193,10 @@
 
     <footer class="footer footer-static footer-light navbar-border navbar-shadow">
         <div class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
-            <span class="float-md-left d-block d-md-inline-block">2023 Mucize Dogan Sarikurkcu
-                <a class="text-bold-800 grey darken-2" href="https://github.com/MucizeDogan" target="_blank">       GitHub</a></span>
+            <span class="float-md-left d-block d-md-inline-block">
+                2023 Mucize Dogan Sarikurkcu
+                <a class="text-bold-800 grey darken-2" href="https://github.com/MucizeDogan" target="_blank">       GitHub</a>
+            </span>
             <ul class="list-inline float-md-right d-block d-md-inline-blockd-none d-lg-block mb-0">
                 <li class="list-inline-item"><a class="my-1" href="https://www.linkedin.com/in/mucize-doğan-sarıkürkcü-974660234/" target="_blank"> LinkedIn</a></li>
                 <li class="list-inline-item"><a class="my-1" href="https://github.com/MucizeDogan" target="_blank"> GitHub</a></li>
@@ -212,5 +216,18 @@
     <!-- END CHAMELEON  JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <!-- END PAGE LEVEL JS-->
+
+ @*   <script>
+        $(document).ready(function() {
+            //function getCookieValue() {
+            const name = document.cookie;
+            const value = name.split(`name=`)[1];
+            //if (parts.length === 2) {
+            console.log(value);
+            $('#userName').text(value);
+            //}
+            //}
+        });
+    </script>*@
 </body>
 </html>

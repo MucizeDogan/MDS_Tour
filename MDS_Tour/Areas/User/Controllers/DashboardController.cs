@@ -20,7 +20,7 @@ namespace MDS_Tour.Areas.User.Controllers
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             if(values!=null)
             {
-                ViewBag.userName = values.Name +values.Surname;
+                ViewBag.userName = values.Name +" "+values.Surname;
                 ViewBag.userImage = values.Image;
                 return View();
             }
@@ -36,8 +36,11 @@ namespace MDS_Tour.Areas.User.Controllers
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             if (values != null)
             {
-                ViewBag.userName = values.Name + values.Surname;
+                ViewBag.userNameSurname = values.Name +" "+ values.Surname;
+                ViewBag.userName = values.UserName;
                 ViewBag.userImage = values.Image;
+                ViewBag.userPhone = values.PhoneNumber;
+                ViewBag.userMail = values.Email;
                 return View();
             }
             else

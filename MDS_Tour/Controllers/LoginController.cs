@@ -3,6 +3,7 @@ using MDS_Tour.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace MDS_Tour.Controllers
 {
@@ -11,15 +12,15 @@ namespace MDS_Tour.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-     
+
         public LoginController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-           
+
         }
 
-       
+
 
         [HttpGet]
         public IActionResult SignUp()
@@ -29,7 +30,7 @@ namespace MDS_Tour.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult>  SignUp(UserRegisterViewModel p)
+        public async Task<IActionResult> SignUp(UserRegisterViewModel p)
         {
             if (!ModelState.IsValid)
             {
@@ -41,12 +42,12 @@ namespace MDS_Tour.Controllers
                 Surname = p.Surname,
                 Email = p.Mail,
                 UserName = p.Username
-                
+
 
             };
-            if(p.Password==p.ConfirmPassword)
+            if (p.Password == p.ConfirmPassword)
             {
-                var result = await _userManager.CreateAsync(appUser,p.Password);
+                var result = await _userManager.CreateAsync(appUser, p.Password);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("SignIn");
@@ -56,7 +57,7 @@ namespace MDS_Tour.Controllers
                     foreach (var item in result.Errors)
                     {
                         ModelState.AddModelError("", item.Description);
-                    } 
+                    }
                 }
             }
             return View(p);
@@ -74,17 +75,21 @@ namespace MDS_Tour.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(p.username, p.password, false, true);
+
+                //var cookie = new CookieOptions();
+                //cookie.Expires = DateTime.Now.AddDays(1);
+                //Response.Cookies.Append("name", "ozan", cookie);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("NewReservation", "Reservation",new {area = "User"});
-                                           //("Index", "Destination", new { area = "User" });
+                    return RedirectToAction("NewReservation", "Reservation", new { area = "User" });
+                    //("Index", "Destination", new { area = "User" });
                 }
                 else
                 {
                     return RedirectToAction("SignIn", "Login");
                 }
             }
-            
+
             return View();
         }
     }

@@ -20,7 +20,7 @@ namespace MDS_Tour
 {
     public class Program
     {
-        
+
 
         public static void Main(string[] args)
         {
@@ -44,11 +44,12 @@ namespace MDS_Tour
             builder.Services.AddHttpClient();
 
             // container Dependency injection uyguladýk ve ekstra new lemeden çaðýrdýk methodu
-           builder.Services.ContainerDependicies();
+            builder.Services.ContainerDependicies();
             // Auto Mapper ýn eklenmesi
             builder.Services.AddAutoMapper(typeof(Program));
 
-
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //Announcement Add Validasyon için 
             builder.Services.CustomValidator();
 
@@ -73,7 +74,7 @@ namespace MDS_Tour
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            
+
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
@@ -88,7 +89,6 @@ namespace MDS_Tour
 
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Login}/{action=SignIn}/{id?}");

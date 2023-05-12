@@ -24,10 +24,10 @@ namespace MDS_Tour.Areas.User.Controllers
 
         public async Task<IActionResult> MyActiveReservation()
         {
-
-            var data = await _userManager.FindByNameAsync(User.Identity.Name);
+           
+            var data =await _userManager.FindByNameAsync(User.Identity.Name);
             var datalist = _reservationManager.GetListReservationByAccepted(data.Id);
-
+          
             return View(datalist);
         }
         public async Task<IActionResult> MyOldReservation()
@@ -71,6 +71,9 @@ namespace MDS_Tour.Areas.User.Controllers
             //    ViewBag.v = data;
             //    return View(p);
             //}
+
+            var userIdentity = (ClaimsIdentity)User.Identity;
+
             p.AppUserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             p.Status = "Waiting";
             _reservationManager.Tadd(p);
