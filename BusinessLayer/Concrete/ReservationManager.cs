@@ -14,11 +14,36 @@ namespace BusinessLayer.Concrete
     {
         IReservationDal _reservationDal;
 
+        public List<Reservation> TGetAdminListReservationByOld()
+        {
+            return _reservationDal.GetAdminListReservationByOld();  
+        }
+
+        public void TChangeToOldStatus(int id)
+        {
+            _reservationDal.ChangeToOldStatus(id);
+        }
+
+        public void TChangeToApproveStatus(int id)
+        {
+            _reservationDal.ChangeToApproveStatus(id);
+        }
+
         public ReservationManager(IReservationDal reservationDal)
         {
             _reservationDal = reservationDal;
         }
+        public List<Reservation> TGetAdminListReservationByWaiting()
+        {
+            return _reservationDal.GetAdminListReservationByWaiting();
+        }
 
+        public List<Reservation> TGetAdminListReservationByAccepted()
+        {
+            return _reservationDal.GetAdminListReservationByAccepted();
+        }
+
+       
         public List<Reservation> GetListReservationByAccepted(int id)
         {
             return _reservationDal.GetListReservationByAccepted(id);
@@ -41,17 +66,17 @@ namespace BusinessLayer.Concrete
 
         public void Tdelete(Reservation t)
         {
-            throw new NotImplementedException();
+            _reservationDal.Delete(t);
         }
 
         public Reservation TgetById(int id)
         {
-            throw new NotImplementedException();
+            return _reservationDal.GetById(id);
         }
 
         public List<Reservation> TGetList()
         {
-            throw new NotImplementedException();
+          return  _reservationDal.GetList();
         }
 
         public void Tupdate(Reservation t)

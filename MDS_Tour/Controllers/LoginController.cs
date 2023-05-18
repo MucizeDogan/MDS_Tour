@@ -72,13 +72,10 @@ namespace MDS_Tour.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(UserSignInViewModel p)
         {
+
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(p.username, p.password, false, true);
-
-                //var cookie = new CookieOptions();
-                //cookie.Expires = DateTime.Now.AddDays(1);
-                //Response.Cookies.Append("name", "ozan", cookie);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("NewReservation", "Reservation", new { area = "User" });

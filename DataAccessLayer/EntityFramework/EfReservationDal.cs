@@ -38,5 +38,44 @@ namespace DataAccessLayer.EntityFramework
             }
         }
 
+        public List<Reservation> GetAdminListReservationByWaiting()
+        {
+            using (var context = new Context())        // Context i newledik.
+            {
+
+                return context.Reservations.Include(x => x.Destination).Where(x => x.Status == "Waiting").ToList();         //Context içinde yer alan resservation içine inClude(Dahil Et)  
+            }
+        }
+
+        public List<Reservation> GetAdminListReservationByAccepted()
+        {
+            using (var context = new Context())
+            {
+                return context.Reservations.Include(x => x.Destination).Where(x => x.Status == "Approved").ToList();
+            }
+        }
+
+        Context c = new Context();
+        public void ChangeToApproveStatus(int id)
+        {
+            var data = c.Reservations.Find(id);
+            data.Status = "Approved";
+            c.SaveChanges();
+        }
+
+        public void ChangeToOldStatus(int id)
+        {
+            var data = c.Reservations.Find(id);
+            data.Status = "Past";
+            c.SaveChanges();
+        }
+
+        public List<Reservation> GetAdminListReservationByOld()
+        {
+            using (var context = new Context())
+            {
+                return context.Reservations.Include(x => x.Destination).Where(x => x.Status == "Past").ToList();
+            }
+        }
     }
 }

@@ -78,7 +78,7 @@ namespace MDS_Tour.Areas.User.Controllers
             p.Status = "Waiting";
             _reservationManager.Tadd(p);
             //ViewBag.v = p.DestinationId;
-            return RedirectToAction("MyActiveReservation");
+            return RedirectToAction("MyApprovalReservation");
         }
     }
 }

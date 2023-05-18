@@ -119,6 +119,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3VpZGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/Reservation/AdminAccepted.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzZXJ2YXRpb25cQWRtaW5BY2NlcHRlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/Reservation/AdminOld.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzZXJ2YXRpb25cQWRtaW5PbGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/Reservation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVzZXJ2YXRpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mucize/Desktop/C\#/MDS_Tour/MDS_Tour/Areas/Admin/Views/Role/AssignRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxBc3NpZ25Sb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
