@@ -3,25 +3,46 @@ using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class DestinationController : Controller
+    //[AllowAnonymous]
+    //[Authorize(Roles = "Admin")]
+   
+    public class DestinationController : BaseController
     {
+        
         IDestinationService _destinationService;
+        private readonly UserManager<AppUser> _userManager;
 
-        public DestinationController(IDestinationService destinationService)
+
+        public DestinationController(IDestinationService destinationService, UserManager<AppUser> userManager)
         {
             _destinationService = destinationService;
+            _userManager = userManager;
         }
 
-        public IActionResult Index()
+      
+        public async Task <IActionResult> Index()
         {
+           //var user =await _userManager.GetUserAsync(User);
+           // if(await _userManager.IsInRoleAsync(user,"Admin"))
+           // {
+           //    var data = _destinationService.TGetList();
+           //     return View(data);
+           // }
+           // else
+           // {
+           //     return RedirectToAction("Index","AccessDenied");
+                
+           // }
+
             var data = _destinationService.TGetList();
             return View(data);
+            
         }
 
         [HttpGet]

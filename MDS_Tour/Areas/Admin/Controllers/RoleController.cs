@@ -8,8 +8,9 @@ namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/Role")]
-    [AllowAnonymous]
-    public class RoleController : Controller
+    // [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class RoleController : BaseController
     {
         private readonly RoleManager<AppRole> _roleManager;
         private readonly UserManager<AppUser> _userManager;

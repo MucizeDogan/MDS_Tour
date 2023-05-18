@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class DashboardController : Controller
+    // [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class DashboardController : BaseController
     {
         Context c = new Context();
 

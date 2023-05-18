@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class ContactUsController : Controller
+    //[AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class ContactUsController : BaseController
     {
         private readonly IContactUsService _contactUsService;
 

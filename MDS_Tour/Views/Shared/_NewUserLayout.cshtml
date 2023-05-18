@@ -86,9 +86,10 @@
                                         <span class="avatar avatar-online">
                                             <img src="TEST.userImage" alt="avatar">
                                             <span class="user-name text-bold-700 ml-1" id="userName">@HttpContextAccessor.HttpContext.User.Identity.Name </span>
-                                            
-@*                                            @HttpContextAccessor.HttpContext.User.Identity.Name.Split(' ')[1]
-*@                                        </span>
+
+                                            @*                                            @HttpContextAccessor.HttpContext.User.Identity.Name.Split(' ')[1]
+                                            *@
+                                        </span>
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="/User/Profile/Index/"><i class="ft-user"></i> Edit Profile</a>
@@ -150,8 +151,22 @@
                     <a href="/User/Announcement/Index/"><i class="ft-radio"></i><span class="menu-title" data-i18n="">Announcements</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="#"><i class="ft-log-out"></i><span class="menu-title" data-i18n="">Log Out</span></a>
+
+                    @*<form id="logoutForm" asp-controller="Account" asp-action="LogOut" method="post">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="ft-log-out">Log Out</button>
+                    </form>*@
+                    @using Microsoft.AspNetCore.Mvc.Rendering
+                 
+
+                        <form id="logoutForm" asp-controller="Login" asp-action="LogOut" method="post">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="nav-link btn btn-link text-dark">Log Out</button>
+                        </form>
+                    @*<a href="#"><i class="ft-log-out"></i><span class="menu-title" data-i18n="">Log Out</span></a>*@
+
                 </li>
+
 
             </ul>
         </div>
@@ -216,18 +231,17 @@
     <!-- END CHAMELEON  JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <!-- END PAGE LEVEL JS-->
-
- @*   <script>
-        $(document).ready(function() {
-            //function getCookieValue() {
-            const name = document.cookie;
-            const value = name.split(`name=`)[1];
-            //if (parts.length === 2) {
-            console.log(value);
-            $('#userName').text(value);
-            //}
-            //}
-        });
+    @*   <script>
+    $(document).ready(function() {
+    //function getCookieValue() {
+    const name = document.cookie;
+    const value = name.split(`name=`)[1];
+    //if (parts.length === 2) {
+    console.log(value);
+    $('#userName').text(value);
+    //}
+    //}
+    });
     </script>*@
 </body>
 </html>

@@ -92,5 +92,14 @@ namespace MDS_Tour.Controllers
 
             return View();
         }
+
+        public async Task<IActionResult> LogOut()
+        {
+            // Kullanıcının oturumunu sonlandır
+            await _signInManager.SignOutAsync();
+
+            // SignIn sayfasına yönlendir
+            return RedirectToAction("SignIn", "Login");
+        }
     }
 }

@@ -7,8 +7,9 @@ using System.Text;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class VisitorApiController : Controller
+    //[AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class VisitorApiController : BaseController
     {
         // Burası bir api yi tüketen kullanan bir controller olacak.
         

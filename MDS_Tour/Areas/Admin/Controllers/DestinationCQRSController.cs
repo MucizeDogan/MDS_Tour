@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class DestinationCQRSController : Controller
+    //[AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class DestinationCQRSController : BaseController
     {
 
         private readonly GetAllDestinationQueryHandler _getAllDestinationQueryHandler;

@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class UserController : Controller
+    //[AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class UserController : BaseController
     {
         private readonly IAppUserService _appUserService;
         private readonly IReservationService _reservationService;

@@ -10,8 +10,9 @@ namespace MDS_Tour.Areas.Admin.Controllers
     [Area("Admin")]
     //[Route("Admin/Guide")]
     [Route("Admin/[controller]/[action]/{id?}")]
-    [AllowAnonymous]
-    public class GuideController : Controller
+    //[AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class GuideController : BaseController
     {
         private readonly IGuidesService _guidesService;
 

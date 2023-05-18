@@ -10,6 +10,6 @@ namespace DataAccessLayer.Abstract
     public interface ICommentDal : IGenericDal<Comment>
     {
         public List<Comment> GetListCommentWithDestination();
-        public List<Comment> GetListCommentWithoutDestinationAndUser(int id);
+        public List<Comment> GetListCommentWithoutDestinationAndUser(int id, bool isCommentPage);
     }
 }

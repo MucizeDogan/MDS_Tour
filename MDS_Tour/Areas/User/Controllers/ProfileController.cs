@@ -47,11 +47,15 @@ namespace MDS_Tour.Areas.User.Controllers
             user.Name = p.name;
             user.Surname = p.surname;
             user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.password);
-            var data = await _userManager.UpdateAsync(user);
-            if(data.Succeeded)
+            if(user.PasswordHash != null)
             {
-                return RedirectToAction("SignIn","Login");
+                var data = await _userManager.UpdateAsync(user);
+                if (data.Succeeded)
+                {
+                    return RedirectToAction("SignIn", "Login");
+                }
             }
+            
             return View();
         }
     }

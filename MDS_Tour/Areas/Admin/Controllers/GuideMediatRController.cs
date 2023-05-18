@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    // [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
 
     // BURADA MEDIATR(MEDIATOR) KULLANARAK HER HANDLE İÇİN TEK TEK CONSTR TANIMLAMAMAZIA GEREK KALMIYOR.
-    public class GuideMediatRController : Controller
+    public class GuideMediatRController : BaseController
     {
         private readonly IMediator _mediator;
 

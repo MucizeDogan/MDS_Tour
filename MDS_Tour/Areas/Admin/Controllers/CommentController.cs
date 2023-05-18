@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class CommentController : Controller
+    //[AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class CommentController : BaseController
     {
         //CommentManager _commentManager = new CommentManager(new EfCommentDal());  //Ef bağımlılığından kurtulmak için aşağıdaki refactoring yöntemini kullandık artık bnuna gerek yok...
 

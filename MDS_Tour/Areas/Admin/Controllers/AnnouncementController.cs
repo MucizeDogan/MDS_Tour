@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    //[AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public class AnnouncementController : Controller
     {
         private readonly IAnnouncementService _announcementService;

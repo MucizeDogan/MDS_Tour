@@ -8,8 +8,9 @@ using MimeKit;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class EMailController : Controller
+    // [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class EMailController : BaseController
     {
         [HttpGet]
         public IActionResult Index()

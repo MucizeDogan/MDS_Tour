@@ -21,12 +21,17 @@ namespace DataAccessLayer.EntityFramework
             }
         }
 
-        public List<Comment> GetListCommentWithoutDestinationAndUser(int id)
+        public List<Comment> GetListCommentWithoutDestinationAndUser(int id, bool isCommentPage)
         {
             using (var c = new Context())
             {
+                if (isCommentPage)
+                {
+                    return c.Comments.Include(x => x.AppUser).Where(x => x.AppUser.Id == id).ToList();
+                }
                 return c.Comments.Where(x => x.DestinationId == id).Include(x => x.AppUser).ToList();
             }
         }
+
     }
 }

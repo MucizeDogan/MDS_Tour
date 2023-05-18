@@ -98,7 +98,7 @@ namespace MDS_Tour
             app.UseAuthentication();
             app.UseAuthorization();
 
-            var supportedCultures = new[] { "tr" ,"en", "fr", "sp", "ru", "de"  };
+            var supportedCultures = new[] { "tr", "en", "fr", "sp", "ru", "de" };
             var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0]).AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures);
             app.UseRequestLocalization(localizationOptions);
 
@@ -115,6 +115,12 @@ namespace MDS_Tour
             });
             app.UseEndpoints(endpoints =>
             {
+
+                endpoints.MapControllerRoute(
+                      name: "Admin",
+                      pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}"
+                );
+
                 endpoints.MapControllerRoute(
                   name: "areas",
                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"

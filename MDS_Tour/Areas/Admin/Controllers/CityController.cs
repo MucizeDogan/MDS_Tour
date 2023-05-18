@@ -8,8 +8,9 @@ using Newtonsoft.Json;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class CityController : Controller
+    //[AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class CityController : BaseController
     {
         private readonly IDestinationService _destinationService;
         public CityController(IDestinationService destinationService)

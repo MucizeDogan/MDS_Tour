@@ -11,8 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class AccountController : Controller
+    //[AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
 
