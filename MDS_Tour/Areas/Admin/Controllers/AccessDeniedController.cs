@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MDS_Tour.Areas.Admin.Controllers
 {
-    //[Area("Admin")]
+    [Area("Admin")]
     [AllowAnonymous]
     public class AccessDeniedController : Controller
     {

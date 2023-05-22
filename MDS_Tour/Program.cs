@@ -63,16 +63,25 @@ namespace MDS_Tour
                 opt.ResourcesPath = "Resources";
             });
 
-            builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
-            // Proje seviyesinde authorizationu kullanmak.
             builder.Services.AddMvc(config =>
             {
                 var policy = new AuthorizationPolicyBuilder()
                 .RequireAuthenticatedUser()
                 .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
+            }).AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization()
+            .AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AuthorizePage("/AccessDenied");
             });
-            builder.Services.AddMvc();
+
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = "/Admin/AccessDenied/Index";
+            });
+            // Proje seviyesinde authorizationu kullanmak.
+            //builder.Services.AddMvc();
+            //builder.Services.AddMvc();
 
             builder.Services.ConfigureApplicationCookie(options =>
             {
@@ -113,20 +122,14 @@ namespace MDS_Tour
                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                 );
             });
-            app.UseEndpoints(endpoints =>
-            {
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //      name: "Admin",
+            //      pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}"
+            //    );
+            //});
 
-                endpoints.MapControllerRoute(
-                      name: "Admin",
-                      pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}"
-                );
-
-                endpoints.MapControllerRoute(
-                  name: "areas",
-                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
-            });
-          
 
             app.Run();
         }

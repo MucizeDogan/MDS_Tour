@@ -35,20 +35,20 @@ namespace MDS_Tour.Areas.Admin.Controllers
         {
             var data = _reservationService.TgetById(id);
             _reservationService.Tdelete(data);
-            return RedirectToAction("Index");
-                
+            return RedirectPermanent("/Admin/Reservation/Index");
+
         }
 
         public IActionResult ChangeApproveStatus(int id)
         {
             _reservationService.TChangeToApproveStatus(id);
-            return RedirectToAction("Index");
+            return RedirectPermanent("/Admin/Reservation/Index");
         }
 
         public IActionResult ChangeOldStatus(int id)
         {
             _reservationService.TChangeToOldStatus(id);
-            return RedirectToAction("Index");
+            return RedirectPermanent("/Admin/Reservation/Index");
         }
     }
 }

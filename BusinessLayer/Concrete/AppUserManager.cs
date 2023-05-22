@@ -25,12 +25,12 @@ namespace BusinessLayer.Concrete
 
         public void Tdelete(AppUser t)
         {
-            throw new NotImplementedException();
+            _appUserDal.Delete(t);
         }
 
         public AppUser TgetById(int id)
         {
-            throw new NotImplementedException();
+            return _appUserDal.GetById(id);
         }
 
         public List<AppUser> TGetList()
@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public void Tupdate(AppUser t)
         {
-            throw new NotImplementedException();
+            _appUserDal.Update(t);
         }
     }
 }

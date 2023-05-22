@@ -27,9 +27,11 @@ namespace MDS_Tour.Controllers
         [HttpGet]
         public async Task<IActionResult> DestinationDetails(int id)
         {
-            ViewBag.i = id;
-            var data2 = await _userManager.FindByNameAsync(User.Identity.Name);  //Kullanıcı adına göre bul bulduktan sonra bu bulduğun id yi ViewBag.userID ye yapıştır
-            ViewBag.userId = data2.Id;
+            if (!string.IsNullOrEmpty(User.Identity.Name))
+            {
+                var data2 = await _userManager.FindByNameAsync(User.Identity.Name);  //Kullanıcı adına göre bul bulduktan sonra bu bulduğun id yi ViewBag.userID ye yapıştır
+                ViewBag.userId = data2.Id;
+            }
             var data = destinationManager.TGetDestinationWithGuideList(id);
             return View(data);
         }

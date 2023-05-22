@@ -1,9 +1,12 @@
-﻿@model EntityLayer.Concrete.Destination
+﻿@*@model List<EntityLayer.Concrete.Destination>*@
+@model List<Destination>
+
+
 <section class="w3l-main-slider" id="home">
     <div class="banner-content">
         <div id="demo-1"
-            data-zs-src='["/Traversal-Content/Traversal-Liberty/assets/images/bodrum1.jpg", "/Traversal-Content/Traversal-Liberty/assets/images/slider1.jpg","/Traversal-Content/Traversal-Liberty/assets/images/antalya1.jpg", "/Traversal-Content/Traversal-Liberty/assets/images/barcelona.jpg"]'
-        data-zs-overlay="dots">
+             data-zs-src='["/Traversal-Content/Traversal-Liberty/assets/images/bodrum1.jpg", "/Traversal-Content/Traversal-Liberty/assets/images/slider1.jpg","/Traversal-Content/Traversal-Liberty/assets/images/antalya1.jpg", "/Traversal-Content/Traversal-Liberty/assets/images/barcelona.jpg"]'
+             data-zs-overlay="dots">
             <div class="demo-inner-content">
                 <div class="container">
                     <div class="banner-infhny">
@@ -11,35 +14,21 @@
                         <h6 class="mb-3">Discover your next adventure</h6>
                         <div class="flex-wrap search-wthree-field mt-md-5 mt-4">
 
-                            <form action="searchForm" method="get" class="booking-form">
+                            <form asp-action="DestinationDetails" asp-controller="Destination" method="get" class="booking-form">
                                 <div class="row book-form">
-                                    
-                                        <div class="form-input col-md-4 mt-md-0 mt-3">
+                                    <div class="form-input col-md-4 mt-md-0 mt-3">
 
-                                        <select name="selectpicker" class="selectpicker">
-                                            <option value="">Destinaion</option>
-                                            <option value="Bodrum">Bodrum</option>
-                                            <option value="America">America</option>
-                                            <option value="Balkans">Balkans</option>
-                                            <option value="Antalya">Antalya</option>
-                                            <option value="Canada">Canada</option>
-                                            <option value="Atina">Atina</option>
-                                            <option value="Munih">Munih</option>
-                                            <option value="Afyonkarahisar">Afyonkarahisar</option>
+                                        <select name="id">
+                                            @foreach (var item in Model)
+                                            {
+                                                <option value="@item.DestinationId">@item.City</option>
+
+                                            }
                                         </select>
-
                                     </div>
-                                    
-                                    
-                                   @* <div class="form-input col-md-4 mt-md-0 mt-3">
-
-                                        <input type="date" name="" placeholder="Date" required="">
-                                    </div>*@
                                     <div class="bottom-btn col-md-4 mt-md-0 mt-3">
-                                        <button  class="btn btn-style btn-secondary">
-                                            <span class="fa fa-search mr-3"
-                                                  aria-hidden="true"></span> Search
-                                        </button>
+                                      
+                                        <button class="btn btn-style btn-secondary" type="submit">Search</button>
                                     </div>
                                 </div>
                             </form>

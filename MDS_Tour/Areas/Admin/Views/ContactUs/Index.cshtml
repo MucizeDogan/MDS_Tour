@@ -22,8 +22,8 @@
         <td>@item.Name</td>
         <td>@item.Subject</td>
         <td>@item.MessageDate</td>
-        <td><a href="#" class="btn btn-success">Open Message</a></td>
-        <td><a href="#" class="btn btn-danger">Delete</a></td>
+        <td><a href="/Admin/ContactUs/Message/@item.ContactUsId" class="btn btn-success">Open Message</a></td>
+        <td><a href="/Admin/ContactUs/DeleteMessage/@item.ContactUsId" class="btn btn-danger">Delete</a></td>
     </tr>
     }
 </table>

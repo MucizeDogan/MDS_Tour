@@ -30,12 +30,12 @@ namespace BusinessLayer.Concrete
 
         public void Tdelete(ContactUs t)
         {
-            throw new NotImplementedException();
+            _contactUsDal.Delete(t);
         }
 
         public ContactUs TgetById(int id)
         {
-            throw new NotImplementedException();
+            return _contactUsDal.GetById(id);
         }
 
         public List<ContactUs> TGetList()

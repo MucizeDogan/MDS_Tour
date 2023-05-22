@@ -35,7 +35,7 @@ namespace MDS_Tour.Areas.Admin.Controllers
         public IActionResult EditUser(int id)
         {
             var data = _appUserService.TgetById(id);
-            return RedirectToAction("Index");
+            return View(data);
             
         }
 
@@ -43,7 +43,7 @@ namespace MDS_Tour.Areas.Admin.Controllers
         public IActionResult EditUser(AppUser appUser)
         {
             _appUserService.Tupdate(appUser);
-            return RedirectToAction("Index");
+            return RedirectPermanent("/Admin/User/Index");
         }
 
         public IActionResult CommentUser(int id)

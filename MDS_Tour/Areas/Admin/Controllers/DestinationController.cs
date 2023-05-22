@@ -10,9 +10,9 @@ namespace MDS_Tour.Areas.Admin.Controllers
 {
     [Area("Admin")]
     //[AllowAnonymous]
-    //[Authorize(Roles = "Admin")]
-   
-    public class DestinationController : BaseController
+    [Authorize(Roles = "Admin")]
+
+    public class DestinationController : Controller
     {
         
         IDestinationService _destinationService;

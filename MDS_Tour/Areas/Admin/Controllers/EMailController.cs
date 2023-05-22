@@ -39,7 +39,7 @@ namespace MDS_Tour.Areas.Admin.Controllers
 
             SmtpClient smtpClient = new SmtpClient();     // Simple Mail Transfer Protokol Sunucusu
             smtpClient.Connect("smtp.gmail.com", 587, false);
-            smtpClient.Authenticate("tourmds@gmail.com", "azjpfkzpozqvhlrf");
+            smtpClient.Authenticate("tourmds@gmail.com", "akfcnolafsnlfqpq");
             smtpClient.Send(mimeMessage);
             smtpClient.Disconnect(true);
 

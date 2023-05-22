@@ -23,7 +23,7 @@ namespace MDS_Tour.Areas.Admin.Controllers
         protected IActionResult RedirectToMyArea()
         {
             object routeValues = null;
-            return RedirectToPage("/AccessDenied/Index");
+            return RedirectPermanent("/Admin/AccessDenied/Index");
         }
     }
 }
