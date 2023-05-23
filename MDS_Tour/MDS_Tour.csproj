@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="BlazorToastify" Version="1.0.1" />
     <PackageReference Include="ClosedXML" Version="0.101.0" />
     <PackageReference Include="EPPlus" Version="6.2.1" />
     <PackageReference Include="FluentValidation" Version="11.5.1" />
@@ -53,6 +54,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\select2-4.1.0-rc.0\select2-4.1.0-rc.0\.github\CONTRIBUTING.md" />
+    <None Include="wwwroot\select2-4.1.0-rc.0\select2-4.1.0-rc.0\.github\FUNDING.yml" />
+    <None Include="wwwroot\select2-4.1.0-rc.0\select2-4.1.0-rc.0\.github\ISSUE_TEMPLATE.md" />
+    <None Include="wwwroot\select2-4.1.0-rc.0\select2-4.1.0-rc.0\.github\PULL_REQUEST_TEMPLATE.md" />
+    <None Include="wwwroot\select2-4.1.0-rc.0\select2-4.1.0-rc.0\.github\stale.yml" />
+    <None Include="wwwroot\select2-4.1.0-rc.0\select2-4.1.0-rc.0\.github\workflows\docs-deploy.yml" />
+    <None Include="wwwroot\select2-4.1.0-rc.0\select2-4.1.0-rc.0\.github\workflows\main.yml" />
+    <None Include="wwwroot\select2-4.1.0-rc.0\select2-4.1.0-rc.0\.github\workflows\package-deploy.yml" />
     <None Include="wwwroot\user\src\scss\bootstrap-extended\.sass-cache\b161be96449978188ab92f1e37bbeda94f2952ce\buttons.scssc" />
     <None Include="wwwroot\sneatt\sneat-1.0.0\.github\workflows\handle-new-issue-comment.yml" />
     <None Include="wwwroot\sneatt\sneat-1.0.0\.github\workflows\handle-new-issue.yml" />

@@ -1,52 +1,52 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
 
-<html
-  lang="en"
-  class="light-style layout-menu-fixed"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="~/sneatt/sneat-1.0.0/assets/"
-  data-template="vertical-menu-template-free"
->
-  @await Html.PartialAsync("/Views/Admin/HeaderPartial.cshtml")
+<html lang="en"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="~/sneatt/sneat-1.0.0/assets/"
+      data-template="vertical-menu-template-free">
+@await Html.PartialAsync("/Views/Admin/HeaderPartial.cshtml")
+<link rel="stylesheet" href="~/ckeditor_4.21.0_standard/ckeditor/contents.css" />
 
-  <body>
+<link href="~/select2-4.1.0-rc.0/select2-4.1.0-rc.0/dist/css/select2.css" rel="stylesheet" />
+
+
+<body>
     <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-        <!-- Menu -->
+        <div class="layout-container">
+            <!-- Menu -->
 
-        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-          
-            @await Html.PartialAsync("/Views/Admin/AppBrandDemePartial.cshtml")
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
-          <div class="menu-inner-shadow"></div>
+                @await Html.PartialAsync("/Views/Admin/AppBrandDemePartial.cshtml")
 
-          @await Html.PartialAsync("/Views/Admin/LeftSideBarPartial.cshtml")
+                <div class="menu-inner-shadow"></div>
 
-        </aside>
-        
-        <div class="layout-page">
-          <!-- Navbar -->
-          @await Html.PartialAsync("/Views/Admin/NavbarPartial.cshtml")
-          <!-- / Navbar -->
-            @RenderBody()
-          <div class="content-wrapper">
+                @await Html.PartialAsync("/Views/Admin/LeftSideBarPartial.cshtml")
 
-            
-            <!-- Footer -->
-            
-            <!-- / Footer -->
+            </aside>
 
-            <div class="content-backdrop fade"></div>
-          </div>
+            <div class="layout-page">
+                <!-- Navbar -->
+                @await Html.PartialAsync("/Views/Admin/NavbarPartial.cshtml")
+                <!-- / Navbar -->
+                @RenderBody()
+                <div class="content-wrapper">
+
+
+                    <!-- Footer -->
+                    <!-- / Footer -->
+
+                    <div class="content-backdrop fade"></div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="layout-overlay layout-menu-toggle"></div>
+        <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- build:js assets/vendor/js/core.js -->
     <script src="~/sneatt/sneat-1.0.0/assets/vendor/libs/jquery/jquery.js"></script>
@@ -57,6 +57,11 @@
     <script src="~/sneatt/sneat-1.0.0/assets/vendor/js/menu.js"></script>
     <script src="~/sneatt/sneat-1.0.0/assets/js/main.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+    <script src="~/select2-4.1.0-rc.0/select2-4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="~/ckeditor_4.21.0_standard/ckeditor/ckeditor.js"></script>
+</body>
 </html>
 
+<script>
+    CKEDITOR.replace('ckeditor');
+</script>

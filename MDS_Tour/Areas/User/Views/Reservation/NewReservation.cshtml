@@ -5,14 +5,14 @@
     Layout = "~/Views/Shared/_NewUserLayout.cshtml";
 }
 
-
+<link rel="stylesheet" href="~/toastify-js-master/toastify-js-master/src/toastify.css" />
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
                 <br>
-                <h3 >Create New Reservation</h3>
-                
+                <h3>Create New Reservation</h3>
+
                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -42,27 +42,31 @@
                         </div>
                         <div class="form-group">
                             <label>Description(optional) </label>
-                            <input type="text" asp-for="Description" class="form-control" />
+                            <input type="text" asp-for="Description" id="ckeditor" class="form-control" />
                         </div>
 
-                        <button class=" btn btn-success">Make a Reservation</button>
-
-
-
-
-                        @* pop up*@
-                        <script>
-                            window.onload = (function() {
-                                alert('Your reservation will be initially waiting confirmation. Do not forget to follow the "My Current Reservations" menu for the reservation confirmation process..');
-                            });</script>
+                        <button id="myButton" class=" btn btn-success">Make a Reservation</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
+<script>
+    $(document).ready(function() {
+        Toastify({
+            text: " Your reservation will be initially waiting confirmation. Do not forget to follow the My Current Reservations menu for the reservation confirmation process..",
+            duration: 5000,
+            destination: "",
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "center",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+            stopOnFocus: true,
+        }).showToast();
+    });
+</script>
 
 
 

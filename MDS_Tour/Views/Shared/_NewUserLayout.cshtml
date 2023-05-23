@@ -21,7 +21,13 @@
     <link rel="stylesheet" type="text/css" href="~/user/theme-assets/css/app-lite.css">
     <link rel="stylesheet" type="text/css" href="~/user/theme-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="~/user/theme-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" href="~/ckeditor_4.21.0_standard/ckeditor/contents.css" />
+   
+    <script src="~/ckeditor_4.21.0_standard/ckeditor/ckeditor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/toastify-js-master/toastify-js-master/src/toastify.js"></script>
 </head>
+
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
 
 
@@ -161,12 +167,12 @@
                     <button type="submit" class="ft-log-out">Log Out</button>
                     </form>*@
                     @using Microsoft.AspNetCore.Mvc.Rendering
-                 
 
-                        <form id="logoutForm" asp-controller="Login" asp-action="LogOut" method="post">
-                            @Html.AntiForgeryToken()
-                            <button type="submit" class="nav-link btn btn-link text-dark">Log Out</button>
-                        </form>
+
+                    <form id="logoutForm" asp-controller="Login" asp-action="LogOut" method="post">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="nav-link btn btn-link text-dark">Log Out</button>
+                    </form>
                     @*<a href="#"><i class="ft-log-out"></i><span class="menu-title" data-i18n="">Log Out</span></a>*@
 
                 </li>
@@ -224,28 +230,14 @@
         </div>
     </footer>
 
-    <!-- BEGIN VENDOR JS-->
+
     <script src="~/user/theme-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
-    <!-- BEGIN VENDOR JS-->
-    <!-- BEGIN PAGE VENDOR JS-->
-    <!-- END PAGE VENDOR JS-->
-    <!-- BEGIN CHAMELEON  JS-->
+ 
     <script src="~/user/theme-assets/js/core/app-menu-lite.js" type="text/javascript"></script>
     <script src="~/user/theme-assets/js/core/app-lite.js" type="text/javascript"></script>
-    <!-- END CHAMELEON  JS-->
-    <!-- BEGIN PAGE LEVEL JS-->
-    <!-- END PAGE LEVEL JS-->
-    @*   <script>
-    $(document).ready(function() {
-    //function getCookieValue() {
-    const name = document.cookie;
-    const value = name.split(`name=`)[1];
-    //if (parts.length === 2) {
-    console.log(value);
-    $('#userName').text(value);
-    //}
-    //}
-    });
-    </script>*@
+
 </body>
 </html>
+<script>
+    CKEDITOR.replace('ckeditor');
+</script>

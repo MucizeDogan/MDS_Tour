@@ -148,12 +148,19 @@
                 <li class=" nav-item">
                     <a href="/User/Announcement/Index/"><i class="ft-radio"></i><span class="menu-title" data-i18n="">Announcements</span></a>
                 </li>
-                <li class=" nav-item">
+              @*  <li class=" nav-item">
                     <a href="#"><i class="ft-log-out"></i><span class="menu-title" data-i18n="">Log Out</span></a>
+                </li>*@
+                <li>
+                     <form id="logoutForm" asp-controller="Login" asp-action="LogOut" method="post">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="nav-link btn btn-link text-dark">Log Out</button>
+                        </form>
                 </li>
 
             </ul>
         </div>
+       
           <a class="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1" href="/Default/Index" target="_blank">Go To Site</a>
         <div class="navigation-background"></div>
     </div>

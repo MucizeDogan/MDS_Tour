@@ -29,7 +29,7 @@ namespace MDS_Tour.Areas.Admin.Controllers
         {
             var data = _appUserService.TgetById(id);
             _appUserService.Tdelete(data);
-            return RedirectToAction("Index");
+            return RedirectToAction("/Admin/User/Index/");
         }
         [HttpGet]
         public IActionResult EditUser(int id)

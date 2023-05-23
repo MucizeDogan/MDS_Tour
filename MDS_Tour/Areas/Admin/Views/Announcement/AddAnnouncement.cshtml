@@ -17,8 +17,9 @@
     <br />
     <div>
         <label>Announcement Content</label>
-        <input type="text" asp-for="Content" class="form-control" />
+        <textarea id="ckeditor" type="text" asp-for="Content" class="form-control"> </textarea>
         <span asp-validation-for="Content" class="text-danger"></span>
+        
     </div>
 
     <br />
