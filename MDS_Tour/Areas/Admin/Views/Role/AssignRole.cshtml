@@ -6,31 +6,38 @@
 
 <h1>Assign Role Page</h1>
 
-<form method="post">
-    @*<div class="form-control">*@
+<form method="post" action="AssignRole">
     <div class="form-group pb-3">
-        <select class="js-example-basic-multiple" id="selectedRoles" name="states[]" multiple="multiple" style="width:50%">
-            @for (int i = 0; i < Model.Count; i++)
+         
+        <select class="js-example-basic-multiple" id="selectedRoles" name="SelectedRoles[]"  multiple="multiple" style="width:50%">
+           @for (int i = 0; i < Model.Count; i++)
+            {
+               
+         if(Model[i].RoleExist)
+            {
+                <option value="@Model[i].RoleId" selected>@Model[i].RoleName</option>
+            }
+            else
             {
                 <option value="@Model[i].RoleId">@Model[i].RoleName</option>
             }
-        </select>
 
+            }
+        </select>
+        
     </div>
-    @*<p class="fo"></p>*@
-    @*</div>*@
+
     <button class="btn btn-outline-primary">Save Changes</button>
 
 
 </form>
 
-@*<script>
- $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
-</script>*@
+
 <script>
     $(function() {
         $('#selectedRoles').select2();
     });
 </script>
+ @*<option value="@Model[i].RoleId">@Model[i].RoleName</option>*@
+                @* <option value="@Model[i].RoleId" selected="@Model[i].RoleExist.ToString().ToLower()">@Model[i].RoleName</option>
+        }*@

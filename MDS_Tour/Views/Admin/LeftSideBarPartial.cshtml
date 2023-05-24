@@ -108,7 +108,16 @@
             <div data-i18n="Analytics">Reports</div>
         </a>
     </li>
-
+     <li class="menu-item">
+        <a href="" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+           <form id="logoutForm" asp-controller="Login" asp-action="LogOut" method="post">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="nav-link btn btn-link text-dark"><i class="ft-log-out"></i>Log Out</button>
+                    </form>
+        </a>
+    </li>
+    
 
 
 

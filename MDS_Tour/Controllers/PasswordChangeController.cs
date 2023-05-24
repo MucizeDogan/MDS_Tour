@@ -12,10 +12,12 @@ namespace MDS_Tour.Controllers
     public class PasswordChangeController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
+        private readonly IConfiguration _configure;
 
-        public PasswordChangeController(UserManager<AppUser> userManager)
+        public PasswordChangeController(UserManager<AppUser> userManager, IConfiguration iConfig)
         {
             _userManager = userManager;
+            _configure = iConfig;
         }
 
         [HttpGet]
@@ -53,7 +55,7 @@ namespace MDS_Tour.Controllers
 
             SmtpClient smtpClient = new SmtpClient();     // Simple Mail Transfer Protokol Sunucusu
             smtpClient.Connect("smtp.gmail.com", 587, false);
-            smtpClient.Authenticate("tourmds@gmail.com", "gsxxmalhzfteojzt");
+            smtpClient.Authenticate(_configure.GetSection("EmailSettings").GetSection("user").Value, _configure.GetSection("EmailSettings").GetSection("password").Value);
             smtpClient.Send(mimeMessage);
             smtpClient.Disconnect(true);
             return View();

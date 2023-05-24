@@ -12,6 +12,13 @@ namespace MDS_Tour.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class EMailController : BaseController
     {
+        private readonly IConfiguration _configure;
+
+        public EMailController(IConfiguration configure)
+        {
+            _configure = configure;
+        }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -39,7 +46,7 @@ namespace MDS_Tour.Areas.Admin.Controllers
 
             SmtpClient smtpClient = new SmtpClient();     // Simple Mail Transfer Protokol Sunucusu
             smtpClient.Connect("smtp.gmail.com", 587, false);
-            smtpClient.Authenticate("tourmds@gmail.com", "akfcnolafsnlfqpq");
+            smtpClient.Authenticate(_configure.GetSection("EmailSettings").GetSection("user").Value, _configure.GetSection("EmailSettings").GetSection("password").Value);
             smtpClient.Send(mimeMessage);
             smtpClient.Disconnect(true);
 

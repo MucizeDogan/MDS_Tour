@@ -4,6 +4,8 @@
     ViewData["Title"] = "NewReservation";
     Layout = "~/Views/Shared/_NewUserLayout.cshtml";
 }
+@*<link rel="stylesheet" href="~/ckeditor_4.21.0_standard/ckeditor/contents.css" />*@
+   
 
 <link rel="stylesheet" href="~/toastify-js-master/toastify-js-master/src/toastify.css" />
 <div class="row">
@@ -52,6 +54,9 @@
         </div>
     </div>
 </div>
+ <script src="~/ckeditor_4.21.0_standard/ckeditor/ckeditor.js"></script>
+
+
 <script>
     $(document).ready(function() {
         Toastify({
@@ -67,6 +72,8 @@
         }).showToast();
     });
 </script>
-
-
+  
+<script>
+    CKEDITOR.replace("ckeditor")
+</script>
 

@@ -3,6 +3,7 @@
     ViewData["Title"] = "AddAnnouncement";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<link rel="stylesheet" href="~/ckeditor_4.21.0_standard/ckeditor/contents.css" />
 <br />
 <h1>Add Announcement</h1>
 <br />
@@ -29,3 +30,8 @@
     <br />
 </form>
 </div>
+ <script src="~/ckeditor_4.21.0_standard/ckeditor/ckeditor.js"></script>
+
+<script>
+    CKEDITOR.replace("ckeditor")
+</script>

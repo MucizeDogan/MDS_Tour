@@ -1,8 +1,10 @@
-﻿using EntityLayer.Concrete;
+﻿using DataAccessLayer.Concrete;
+using EntityLayer.Concrete;
 using MDS_Tour.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace MDS_Tour.Areas.Admin.Controllers
 {
@@ -34,20 +36,20 @@ namespace MDS_Tour.Areas.Admin.Controllers
         }
         [HttpPost]
         [Route("CreateRole")]
-        public async Task <IActionResult> CreateRole(CreateRoleModel createRoleModel)
+        public async Task<IActionResult> CreateRole(CreateRoleModel createRoleModel)
         {
             AppRole appRole = new AppRole()
             {
                 Name = createRoleModel.RoleName
             };
-            var data = _roleManager.CreateAsync(appRole); 
-            if(data.IsCompletedSuccessfully)
+            var data = _roleManager.CreateAsync(appRole);
+            if (data.IsCompletedSuccessfully)
             {
                 return RedirectToAction("Index");
             }
             else
             {
-            return View();
+                return View();
             }
         }
         [Route("DeleteRole/{id}")]
@@ -71,7 +73,7 @@ namespace MDS_Tour.Areas.Admin.Controllers
         }
         [HttpPost]
         [Route("UpdateRole/{id}")]
-        public async Task <IActionResult> UpdateRole(UpdateRoleModel updateModel)
+        public async Task<IActionResult> UpdateRole(UpdateRoleModel updateModel)
         {
             var data = _roleManager.Roles.FirstOrDefault(x => x.Id == updateModel.RoleId);
             data.Name = updateModel.RoleName;
@@ -90,37 +92,46 @@ namespace MDS_Tour.Areas.Admin.Controllers
         public async Task<IActionResult> AssignRole(int id)
         {
             var user = _userManager.Users.FirstOrDefault(x => x.Id == id); //Rol ata butonuna tıkladığım zaman tıkladığım kullancının bilgileri gelcek
-            TempData["Userid"]=user.Id;
+            TempData["Userid"] = user.Id;
             var roles = _roleManager.Roles.ToList();
             var userRoles = await _userManager.GetRolesAsync(user);
-            List<RoleAssignModel > roleAssignModel = new List<RoleAssignModel>();
+            List<RoleAssignModel> roleAssignModel = new List<RoleAssignModel>();
             foreach (var item in roles)
             {
                 RoleAssignModel model = new RoleAssignModel();
-                model.RoleId=item.Id;
+                model.RoleId = item.Id;
                 model.RoleName = item.Name;
                 model.RoleExist = userRoles.Contains(item.Name);      //Kullanıcının rolleri içerisinde  item dan gelen name değeri var mı? Eğer varsa exist True dönecek
                 roleAssignModel.Add(model);
             }
+            ViewBag.RoleAssignModel = JsonConvert.SerializeObject(roleAssignModel);
             return View(roleAssignModel);
         }
         [HttpPost]
         [Route("AssignRole/{id}")]
-        public async Task<IActionResult> AssignRole(List<RoleAssignModel> model)   //Aynı anda birden fazla rol göndermek istediğimiz için List<RoleAssginModel> dedik
+        //List<int> SelectedRoles
+        public async Task<IActionResult> AssignRole(List<string> SelectedRoles)   //Aynı anda birden fazla rol göndermek istediğimiz için List<RoleAssginModel> dedik
         {
-            var userid =(int) TempData["Userid"];
+            var userid = (int)TempData["Userid"];
             var user = _userManager.Users.FirstOrDefault(x => x.Id == userid);
-            foreach (var item in model)
+            var userRoles = await _userManager.GetRolesAsync(user);
+            Context context = new Context();
+            var roles = context.Roles.ToList();
+
+
+            await _userManager.RemoveFromRolesAsync(user, userRoles);
+
+            var tmp = new List<string>();
+            foreach (var item in SelectedRoles)
             {
-                if(item.RoleExist)  //Eğer ki item ın içerisinde BU rol varsa;
-                {
-                    await _userManager.AddToRoleAsync(user, item.RoleName); //Rolün içine user a roleName i ekliyoruz.  True olanları user ın içine atıyoruz. Checkbox larda seçili olan değerler atanacak. Seçili olmayanlar atanmayacak.
-                }
-                else // Eğer item Roleexist içermiyorsa (Yani False)
-                {
-                    await _userManager.RemoveFromRoleAsync(user, item.RoleName);  
-                }
+                tmp.Add(roles.First(x => x.Id.ToString() == item).Name);
             }
+
+
+            await _userManager.AddToRolesAsync(user, tmp);
+
+            var result = await _userManager.UpdateAsync(user);
+            //}
             return RedirectToAction("UserList");
         }
     }

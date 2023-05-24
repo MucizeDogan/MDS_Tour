@@ -1,5 +1,5 @@
 ﻿@inject IHttpContextAccessor HttpContextAccessor
-
+@using Microsoft.AspNetCore.Mvc.Rendering
 @{
     var test = HttpContextAccessor.HttpContext.User;
 }
@@ -21,13 +21,10 @@
     <link rel="stylesheet" type="text/css" href="~/user/theme-assets/css/app-lite.css">
     <link rel="stylesheet" type="text/css" href="~/user/theme-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="~/user/theme-assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" href="~/ckeditor_4.21.0_standard/ckeditor/contents.css" />
-   
-    <script src="~/ckeditor_4.21.0_standard/ckeditor/ckeditor.js"></script>
+ 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="~/toastify-js-master/toastify-js-master/src/toastify.js"></script>
 </head>
-
 <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
 
 
@@ -88,13 +85,13 @@
                         </li>
                         <li class="dropdown dropdown-user nav-item">
                             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                                <span class="avatar avatar-online"><img src="TEST.userImage" alt="avatar"><i></i></span>
+                                <span class="avatar avatar-online"><img src="#" alt="avatar"><i></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="arrow_box_right">
                                     <a class="dropdown-item" href="#">
                                         <span class="avatar avatar-online">
-                                            <img src="TEST.userImage" alt="avatar">
+                                            <img src="#" alt="avatar">
                                             <span class="user-name text-bold-700 ml-1" id="userName">@HttpContextAccessor.HttpContext.User.Identity.Name </span>
 
                                             @*                                            @HttpContextAccessor.HttpContext.User.Identity.Name.Split(' ')[1]
@@ -123,7 +120,7 @@
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mr-auto">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/User/Dashboard/UserDashboard/">
                         <img class="brand-logo" alt="Chameleon admin logo" src="~/user/theme-assets/images/logo/logo.png" />
                         <h3 class="brand-text">MDS TOUR</h3>
                     </a>
@@ -162,16 +159,13 @@
                 </li>
                 <li class=" nav-item">
 
-                    @*<form id="logoutForm" asp-controller="Account" asp-action="LogOut" method="post">
-                    @Html.AntiForgeryToken()
-                    <button type="submit" class="ft-log-out">Log Out</button>
-                    </form>*@
-                    @using Microsoft.AspNetCore.Mvc.Rendering
+                   
+                    
 
 
                     <form id="logoutForm" asp-controller="Login" asp-action="LogOut" method="post">
                         @Html.AntiForgeryToken()
-                        <button type="submit" class="nav-link btn btn-link text-dark">Log Out</button>
+                        <button type="submit" class="nav-link btn btn-link text-dark"><i class="ft-log-out"></i>Log Out</button>
                     </form>
                     @*<a href="#"><i class="ft-log-out"></i><span class="menu-title" data-i18n="">Log Out</span></a>*@
 

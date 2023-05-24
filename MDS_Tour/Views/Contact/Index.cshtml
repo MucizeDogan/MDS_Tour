@@ -3,7 +3,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link rel="stylesheet" href="~/ckeditor_4.21.0_standard/ckeditor/contents.css" />
 <section class="w3l-about-breadcrumb text-left">
     <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
       <div class="container py-2">
@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="form-group">
-              <textarea asp-for="MessageBody" placeholder="Type your message here*" required=""></textarea>
+              <textarea asp-for="MessageBody" id="ckeditor" placeholder="Type your message here*" required=""></textarea>
               <span asp-validation-for="MessageBody" class="text-danger"></span>
             </div>
             <div class="text-right">
@@ -75,4 +75,7 @@
     </div>
     </div>
 </section>
-   
+    <script src="~/ckeditor_4.21.0_standard/ckeditor/ckeditor.js"></script>
+    <script>
+    CKEDITOR.replace("ckeditor")
+</script>

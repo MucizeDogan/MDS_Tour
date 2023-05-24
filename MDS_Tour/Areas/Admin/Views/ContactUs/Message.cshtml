@@ -3,7 +3,7 @@
     ViewData["Title"] = "Message";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<link rel="stylesheet" href="~/ckeditor_4.21.0_standard/ckeditor/contents.css" />
 <div class="row">
     <div class="col-xl">
         <div class="card mb-4">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-company">Mail</label>
-                        <input type="text" asp-for="Mail" class="form-control" id="basic-default-company" readonly  />
+                        <input type="text" asp-for="Mail" class="form-control" id="basic-default-company" readonly />
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-email">Subject</label>
@@ -28,14 +28,16 @@
                             <input type="text"
                                    id="basic-default-email"
                                    class="form-control"
-                                   asp-for="Subject" readonly/>
-                        </div>                       
+                                   asp-for="Subject" readonly />
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-phone">Message Content</label>
-                        <textarea style="height:100px" asp-for="MessageBody" class="form-control" readonly ></textarea>
+                        @*<textarea style="height:100px" id="ckeditor" asp-for="MessageBody" class="form-control" readonly ></textarea>*@
+
+                        <@Html.Raw(Model.MessageBody)
                     </div>
-                    
+
                     @*<button type="submit" class="btn btn-primary">Update</button>*@
                 </form>
             </div>
@@ -44,3 +46,7 @@
 
 </div>
 
+@*<script src="~/ckeditor_4.21.0_standard/ckeditor/ckeditor.js"></script>*@
+@* <script>
+    CKEDITOR.replace("ckeditor")
+</script>*@
