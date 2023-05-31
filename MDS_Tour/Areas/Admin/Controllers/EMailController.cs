@@ -28,7 +28,11 @@ namespace MDS_Tour.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Index(MailRequest mailRequest)
         {
-            MimeMessage mimeMessage = new MimeMessage();
+            if (!ModelState.IsValid)
+            {
+                return View(mailRequest);
+            }
+                MimeMessage mimeMessage = new MimeMessage();
 
             //Gönderici bilgileri
             MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin", "tourmds@gmail.com"); // Maili gönderen kişinin adı ve mail adresini parametre olarak aldık

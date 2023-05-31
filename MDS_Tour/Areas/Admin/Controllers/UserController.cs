@@ -13,10 +13,12 @@ namespace MDS_Tour.Areas.Admin.Controllers
     {
         private readonly IAppUserService _appUserService;
         private readonly IReservationService _reservationService;
-        public UserController(IAppUserService appUserService, IReservationService reservationService)
+        private readonly ICommentService _commentService;
+        public UserController(IAppUserService appUserService, IReservationService reservationService, ICommentService commentService)
         {
             _appUserService = appUserService;
             _reservationService = reservationService;
+            _commentService = commentService;
         }
 
         public IActionResult Index()
@@ -48,8 +50,14 @@ namespace MDS_Tour.Areas.Admin.Controllers
 
         public IActionResult CommentUser(int id)
         {
-            _appUserService.TGetList();
-            return View();
+            var data = _commentService.TGetListCommentWithoutDestinationAndUser(id, true);
+            return View(data);
+        }
+        public IActionResult DeleteComment(int id)
+        {
+            var data = _commentService.TgetById(id);
+            _commentService.Tdelete(data);
+            return RedirectPermanent("/Admin/User/Index/");
         }
         public IActionResult ReservationUser(int id)
         {

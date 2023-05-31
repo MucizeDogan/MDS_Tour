@@ -1,0 +1,29 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+@{
+    ViewData["Title"] = "CommentUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>User Comments</h1>
+
+<table  class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Comment Date </th>
+        <th>Comment Content</th>
+        <th>Destination Id</th>
+        <th>DELETE</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.CommentId</td>
+        <td>@item.CommentDate.ToShortDateString()</td>
+        <td>@item.CommentContent</td>
+        <td>@item.DestinationId</td>
+        <td><a href="/Admin/User/DeleteComment/@item.CommentId" class="btn btn-outline-primary">DELETE</a></td>
+    </tr>
+    }
+</table>
+

@@ -60,25 +60,34 @@ namespace MDS_Tour.Areas.User.Controllers
         [HttpPost]
         public IActionResult NewReservation(Reservation p)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    List<SelectListItem> data = (from x in _destinationManager.TGetList()
-            //                                 select new SelectListItem
-            //                                 {
-            //                                     Text = x.City,
-            //                                     Value = x.DestinationId.ToString()
-            //                                 }).ToList();
-            //    ViewBag.v = data;
-            //    return View(p);
-            //}
+            if (!ModelState.IsValid)
+            {
+                ViewBag.v = (from x in _destinationManager.TGetList()
+                             select new SelectListItem
+                             {
+                                 Text = x.City,
+                                 Value = x.DestinationId.ToString()
+                             }).ToList();
 
+                return View(p); // Hatalı formu tekrar göster
+            }
             var userIdentity = (ClaimsIdentity)User.Identity;
 
             p.AppUserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             p.Status = "Waiting";
             _reservationManager.Tadd(p);
+            
             //ViewBag.v = p.DestinationId;
             return RedirectToAction("MyApprovalReservation");
         }
     }
 }
+//    List<SelectListItem> data = (from x in _destinationManager.TGetList()
+//                                 select new SelectListItem
+//                                 {
+//                                     Text = x.City,
+//                                     Value = x.DestinationId.ToString()
+//                                 }).ToList();
+//    ViewBag.v = data;
+//    return View(p);
+

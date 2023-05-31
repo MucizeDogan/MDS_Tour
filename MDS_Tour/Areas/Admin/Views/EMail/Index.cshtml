@@ -18,6 +18,7 @@
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Recipient's Email </label>
                         <input type="text" asp-for="RecipientofMail" class="form-control" id="basic-default-fullname" />
+                        <span asp-validation-for="RecipientofMail" class="text-danger"></span>
                        
                     </div>
                    
@@ -31,6 +32,7 @@
                     <div class="mb-10">
                         <label class="form-label" for="basic-default-fullname">Content </label>
                         <textarea cols="25" rows="5" id="ckeditor" asp-for="Content" class="form-control">
+                        <span asp-validation-for="Content" class="text-danger"></span>
                             
                         </textarea>
                     </div>

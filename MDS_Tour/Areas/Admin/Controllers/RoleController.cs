@@ -38,6 +38,10 @@ namespace MDS_Tour.Areas.Admin.Controllers
         [Route("CreateRole")]
         public async Task<IActionResult> CreateRole(CreateRoleModel createRoleModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(createRoleModel);
+            }
             AppRole appRole = new AppRole()
             {
                 Name = createRoleModel.RoleName

@@ -12,8 +12,11 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int DestinationId { get; set; }
+        [Required(ErrorMessage = "Please enter City Name!")]
         public string City { get; set; }
+        [Required(ErrorMessage = "Please enter DayNight!")]
         public string DayNight { get; set; }
+        [Required(ErrorMessage = "Please enter Price!")]
         public double Price { get; set; }
         public string ?Image { get; set; }
         public string ?Description { get; set; }

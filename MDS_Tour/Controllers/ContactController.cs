@@ -41,7 +41,7 @@ namespace MDS_Tour.Controllers
                 });
                 return RedirectToAction("Index", "Default"); 
             }
-            return View();
+            return View(model);
         }
     }
 }

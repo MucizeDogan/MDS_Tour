@@ -127,7 +127,7 @@ namespace MDS_Tour
             //    endpoints.MapControllerRoute(
             //      name: "Admin",
             //      pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}"
-            //    );
+            //    ); 
             //});
 
 

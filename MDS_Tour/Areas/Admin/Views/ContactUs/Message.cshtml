@@ -35,7 +35,7 @@
                         <label class="form-label" for="basic-default-phone">Message Content</label>
                         @*<textarea style="height:100px" id="ckeditor" asp-for="MessageBody" class="form-control" readonly ></textarea>*@
 
-                        <@Html.Raw(Model.MessageBody)
+                        @Html.Raw(Model.MessageBody)
                     </div>
 
                     @*<button type="submit" class="btn btn-primary">Update</button>*@

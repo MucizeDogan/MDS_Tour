@@ -52,7 +52,7 @@ else
                                     <th>DESCRIPTION</th>
                                     <th>STATUS</th>
                                     <th>MAKE OLD</th>
-                                    <th>REDDET</th>
+                                    <th>REJECT</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,8 +66,8 @@ else
                                         <td>@item.PersonCount</td>
                                         <td>@item.ReservationDate</td>
                                         <td>@item.Description</td>
-                                        <td>@item.Status</td>
-                                        <td><a href="/Admin/Reservation/ChangeOldStatus/@item.ReservationId" class="btn btn-outline-info"> MAKE OLD </a></td>
+                                        <th>@item.Status</th>
+                                        <td><a href="/Admin/Reservation/ChangeOldStatus/@item.ReservationId" class="btn btn-outline-warning"> MAKE OLD </a></td>
                                         <td><a href="/Admin/Reservation/DeleteReservation/@item.ReservationId" class="btn btn-danger"> DELETE </a></td>
                                     </tr>
                                 }

@@ -54,6 +54,10 @@ namespace MDS_Tour.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddDestination(Destination destination)
         {
+            if(!ModelState.IsValid)
+            {
+                return View(destination);
+            }
             _destinationService.Tadd(destination);
             return RedirectToAction("Index");
         } 
